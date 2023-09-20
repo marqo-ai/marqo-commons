@@ -5,33 +5,7 @@ with open("README.md", "r", encoding="utf8") as fh:
 
 setup(
     install_requires=[
-        # difficult packages:
-        "click==8.0.4",
-        # tensor_search:
-        "requests",
-        "urllib3",
-        "fastapi_utils",
-        # s2_inference:
-        "clip-marqo==1.0.2",
-        "more_itertools",
-        "nltk",
-        "torch",
-        "open_clip_torch",
-        "pillow",
-        "numpy",
-        "validators",
-        "sentence-transformers",
-        "onnxruntime-gpu",
-        "onnx",
-        "protobuf==3.20.1",
-        "pandas",
-        "optimum",
-        "fastapi",
-        "uvicorn[standard]",
-        "fastapi_utils",
-        "opencv-python-headless",
-        "psutil",
-        "multilingual_clip"
+        "pydantic==2.3.0",
     ],
     name="marqo-commons",
     version="0.0.1",
