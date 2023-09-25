@@ -6,6 +6,8 @@ with open("README.md", "r", encoding="utf8") as fh:
 setup(
     install_requires=[
         "pydantic==2.3.0",
+        "jsonschema==4.17.1",
+        "setuptools~=65.5.1",
     ],
     name="marqo-commons",
     version="0.0.1",
