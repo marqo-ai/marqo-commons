@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf8") as fh:
 
 setup(
     install_requires=[
-        "pydantic==2.3.0",
+        "pydantic==1.9.1",
         "jsonschema==4.17.1",
         "setuptools~=65.5.1",
     ],
