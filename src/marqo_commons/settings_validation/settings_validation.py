@@ -235,7 +235,7 @@ def validate_index_settings(settings_to_validate: dict, MAX_NUMBER_OF_REPLICAS: 
                 NsFields.number_of_replicas: 0
             }]
         }
-        jsonschema.validate(instance=dict, schema=settings_schema)
+        jsonschema.validate(instance=settings_to_validate, schema=settings_schema)
         return settings_to_validate
     except jsonschema.ValidationError as e:
         raise InvalidArgError(
