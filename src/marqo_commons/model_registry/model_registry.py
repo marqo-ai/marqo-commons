@@ -1,4 +1,5 @@
 from typing import Dict
+import json
 
 from marqo_commons.model_registry.sbert_properties import _get_sbert_properties
 from marqo_commons.model_registry.sbert_onnx_properties import _get_sbert_onnx_properties
@@ -47,5 +48,4 @@ def get_model_properties_dict() -> Dict:
 
 
 def get_model_properties_json() -> str:
-    import json
     return json.dumps(get_model_properties_dict(), indent=4)

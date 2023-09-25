@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from marqo_commons.enums import Modality, VectorNumericType
+from marqo_commons.shared_utils.enums import Modality, VectorNumericType
 
 
 class ModelProperties(BaseModel):

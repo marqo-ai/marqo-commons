@@ -2,9 +2,9 @@ from enum import Enum
 
 
 class Modality(str, Enum):
-    IMAGE = "image"
-    TEXT = "text"
+    image = "image"
+    text = "text"
 
 
 class VectorNumericType(str, Enum):
-    FLOAT32 = "float32"
+    float32 = "float32"

@@ -20,10 +20,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: 3.8
 
       - name: Install tox
         run: pip install tox==3.26
 
       - name: Run UnitTests
-        run: tox -e py3-ecs-unit-tests
+        run: tox -e gh-workflows
