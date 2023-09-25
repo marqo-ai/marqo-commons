@@ -1,3 +1,6 @@
+from typing import Dict
+
+
 def _get_onnx_clip_properties() -> Dict:
     ONNX_CLIP_MODEL_PROPERTIES = {
         "onnx32/openai/ViT-L/14":

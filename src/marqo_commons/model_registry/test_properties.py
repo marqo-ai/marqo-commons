@@ -1,3 +1,6 @@
+from typing import Dict
+
+
 def _get_sbert_test_properties() -> Dict:
     TEST_MODEL_PROPERTIES = {
             "sentence-transformers/test":

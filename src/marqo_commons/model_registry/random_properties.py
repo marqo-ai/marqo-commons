@@ -1,3 +1,6 @@
+from typing import Dict
+
+
 def _get_random_properties() -> Dict:
     RANDOM_MODEL_PROPERTIES = {
             "random":

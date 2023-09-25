@@ -1,3 +1,6 @@
+from typing import Dict
+
+
 def _get_sbert_properties() -> Dict:
     SBERT_MODEL_PROPERTIES = {
             "sentence-transformers/all-MiniLM-L6-v1":

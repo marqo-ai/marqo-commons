@@ -1,3 +1,6 @@
+from typing import Dict
+
+
 def _get_multilingual_clip_properties() -> Dict:
     """This is moved here from the model registry to avoid a circular import"""
     # Models are from github repo

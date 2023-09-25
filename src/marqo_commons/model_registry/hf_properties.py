@@ -1,3 +1,6 @@
+from typing import Dict
+
+
 def _get_hf_properties() -> Dict:
     HF_MODEL_PROPERTIES = {
             "hf/all-MiniLM-L6-v1":

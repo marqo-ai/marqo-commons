@@ -1,3 +1,6 @@
+from typing import Dict
+
+
 def _get_sbert_onnx_properties() -> Dict:
     SBERT_ONNX_MODEL_PROPERTIES = {
             "onnx/all-MiniLM-L6-v1":

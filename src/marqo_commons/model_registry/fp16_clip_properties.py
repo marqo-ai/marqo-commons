@@ -1,3 +1,6 @@
+from typing import Dict
+
+
 def _get_fp16_clip_properties() -> Dict:
     FP16_CLIP_MODEL_PROPERTIES = {
         "fp16/ViT-L/14": {
