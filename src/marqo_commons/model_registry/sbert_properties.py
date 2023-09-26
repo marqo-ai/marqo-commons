@@ -5,8 +5,8 @@ from marqo_commons.model_registry.model_properties_object import ModelProperties
 
 class SbertProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
-    modality: list[Modality] = [Modality.text, Modality.image]
-    type: str = "random"
+    modality: list[Modality] = [Modality.text]
+    type: str = "sbert"
     memory_size: float = 0  # TODO: add memory size
     tokens: int
     notes: str = ""
