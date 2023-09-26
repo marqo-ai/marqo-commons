@@ -7,68 +7,78 @@ class SbertProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
     modality: list[Modality] = [Modality.text]
     type: str = "sbert"
-    memory_size: float = 0  # TODO: add memory size
     tokens: int
     notes: str = ""
 
 
 def _get_sbert_properties() -> Dict:
     SBERT_MODEL_PROPERTIES = {
-        "sentence-transformers/all-MiniLM-L6-v1": SbertProperties(
+        "sentence-transformers/all-MiniLM-L6-v1": vars(SbertProperties(
             name="sentence-transformers/all-MiniLM-L6-v1",
+            memory_size=0.7,
             dimensions=384,
             tokens=128,
-        ).__dict__,
-        "sentence-transformers/all-MiniLM-L6-v2": SbertProperties(
+        )),
+        "sentence-transformers/all-MiniLM-L6-v2": vars(SbertProperties(
             name="sentence-transformers/all-MiniLM-L6-v2",
+            memory_size=0.7,
             dimensions=384,
             tokens=256,
-        ).__dict__,
-        "sentence-transformers/all-mpnet-base-v1": SbertProperties(
+        )),
+        "sentence-transformers/all-mpnet-base-v1": vars(SbertProperties(
             name="sentence-transformers/all-mpnet-base-v1",
+            memory_size=0.7,
             dimensions=768,
             tokens=128,
-        ).__dict__,
-        "sentence-transformers/all-mpnet-base-v2": SbertProperties(
+        )),
+        "sentence-transformers/all-mpnet-base-v2": vars(SbertProperties(
             name="sentence-transformers/all-mpnet-base-v2",
+            memory_size=0.7,
             dimensions=768,
             tokens=128,
-        ).__dict__,
-        "sentence-transformers/stsb-xlm-r-multilingual": SbertProperties(
+        )),
+        "sentence-transformers/stsb-xlm-r-multilingual": vars(SbertProperties(
             name="sentence-transformers/stsb-xlm-r-multilingual",
+            memory_size=0.7,
             dimensions=768,
             tokens=128,
-        ).__dict__,
-        "flax-sentence-embeddings/all_datasets_v3_MiniLM-L12": SbertProperties(
+        )),
+        "flax-sentence-embeddings/all_datasets_v3_MiniLM-L12": vars(SbertProperties(
             name="flax-sentence-embeddings/all_datasets_v3_MiniLM-L12",
+            memory_size=0.7,
             dimensions=384,
             tokens=128,
-        ).__dict__,
-        "flax-sentence-embeddings/all_datasets_v3_MiniLM-L6": SbertProperties(
+        )),
+        "flax-sentence-embeddings/all_datasets_v3_MiniLM-L6": vars(SbertProperties(
             name="flax-sentence-embeddings/all_datasets_v3_MiniLM-L6",
+            memory_size=0.7,
             dimensions=384,
             tokens=128,
-        ).__dict__,
-        "flax-sentence-embeddings/all_datasets_v4_MiniLM-L12": SbertProperties(
+        )),
+        "flax-sentence-embeddings/all_datasets_v4_MiniLM-L12": vars(SbertProperties(
             name="flax-sentence-embeddings/all_datasets_v4_MiniLM-L12",
+            memory_size=0.7,
             dimensions=384,
             tokens=128,
-        ).__dict__,
-        "flax-sentence-embeddings/all_datasets_v4_MiniLM-L6": SbertProperties(
+        )),
+        "flax-sentence-embeddings/all_datasets_v4_MiniLM-L6": vars(SbertProperties(
             name="flax-sentence-embeddings/all_datasets_v4_MiniLM-L6",
+            memory_size=0.7,
             dimensions=384,
             tokens=128,
-        ).__dict__,
-        "flax-sentence-embeddings/all_datasets_v3_mpnet-base": SbertProperties(
+        )),
+        "flax-sentence-embeddings/all_datasets_v3_mpnet-base": vars(SbertProperties(
             name="flax-sentence-embeddings/all_datasets_v3_mpnet-base",
+            memory_size=0.7,
             dimensions=768,
             tokens=128,
-        ).__dict__,
-        "flax-sentence-embeddings/all_datasets_v4_mpnet-base": SbertProperties(
+        )),
+        "flax-sentence-embeddings/all_datasets_v4_mpnet-base": vars(SbertProperties(
             name="flax-sentence-embeddings/all_datasets_v4_mpnet-base",
+            memory_size=0.7,
             dimensions=768,
             tokens=128,
-        ).__dict__,
+        )),
     }
 
     return SBERT_MODEL_PROPERTIES

@@ -14,15 +14,17 @@ class SbertTestModelProperties(ModelProperties):
 
 def _get_sbert_test_properties() -> Dict:
     TEST_MODEL_PROPERTIES = {
-        "sentence-transformers/test": SbertTestModelProperties(
+        "sentence-transformers/test": vars(SbertTestModelProperties(
             name="sentence-transformers/all-MiniLM-L6-v1",
+            memory_size=0.66,
             dimensions=16,
             tokens=128,
-        ).__dict__,
-        "test": SbertTestModelProperties(
+        )),
+        "test": vars(SbertTestModelProperties(
             name="sentence-transformers/all-MiniLM-L6-v1",
+            memory_size=0.66,
             dimensions=16,
             tokens=128,
-        ).__dict__,
+        )),
     }
     return TEST_MODEL_PROPERTIES

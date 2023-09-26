@@ -7,35 +7,35 @@ class RandomModelProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
     modality: list[Modality] = [Modality.text, Modality.image]
     type: str = "random"
-    memory_size: float = 0  # TODO: add memory size
     tokens: int
     notes: str = ""
 
 def _get_random_properties() -> Dict:
     RANDOM_MODEL_PROPERTIES = {
-        "random": RandomModelProperties(
+        "random": vars(RandomModelProperties(
             name="random",
+            memory_size=0.1,
             dimensions=384,
             tokens=128,
-        ).__dict__,
-        "random/large": RandomModelProperties(
+        )),
+        "random/large": vars(RandomModelProperties(
             name="random/large",
+            memory_size=0.1,
             dimensions=768,
             tokens=128,
-        ).__dict__,
-        "random/small": RandomModelProperties(
+        )),
+        "random/small": vars(RandomModelProperties(
             name="random/small",
+            memory_size=0.1,
             dimensions=32,
             tokens=128,
-        ).__dict__,
-        "random/medium": RandomModelProperties(
+        )),
+        "random/medium": vars(RandomModelProperties(
             name="random/medium",
+            memory_size=0.1,
             dimensions=128,
             tokens=128,
-        ).__dict__,
+        )),
     }
 
     return RANDOM_MODEL_PROPERTIES
-
-
-_get_random_properties()

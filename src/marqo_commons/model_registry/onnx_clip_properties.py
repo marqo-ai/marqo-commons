@@ -7,7 +7,6 @@ class OnnxClipModelProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
     modality: list[Modality] = [Modality.text, Modality.image]
     type: str = "clip_onnx"
-    memory_size: float = 0  # TODO: add memory size
     repo_id: str
     visual_file: str
     textual_file: str
@@ -19,26 +18,29 @@ class OnnxClipModelProperties(ModelProperties):
 
 def _get_onnx_clip_properties() -> Dict:
     ONNX_CLIP_MODEL_PROPERTIES = {
-        "onnx32/openai/ViT-L/14": OnnxClipModelProperties(
+        "onnx32/openai/ViT-L/14": vars(OnnxClipModelProperties(
             name="onnx32/openai/ViT-L/14",
+            memory_size=1.5,
             dimensions=768,
             notes="the onnx float32 version of openai ViT-L/14",
             repo_id="Marqo/onnx-openai-ViT-L-14",
             visual_file="onnx32-openai-ViT-L-14-visual.onnx",
             textual_file="onnx32-openai-ViT-L-14-textual.onnx",
             resolution=224,
-        ).__dict__,
-        "onnx16/openai/ViT-L/14": OnnxClipModelProperties(
+        )),
+        "onnx16/openai/ViT-L/14": vars(OnnxClipModelProperties(
             name="onnx16/openai/ViT-L/14",
+            memory_size=1.5,
             dimensions=768,
             notes="the onnx float16 version of openai ViT-L/14",
             repo_id="Marqo/onnx-openai-ViT-L-14",
             visual_file="onnx16-openai-ViT-L-14-visual.onnx",
             textual_file="onnx16-openai-ViT-L-14-textual.onnx",
             resolution=224,
-        ).__dict__,
-        "onnx32/open_clip/ViT-L-14/openai": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/ViT-L-14/openai": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-L-14/openai",
+            memory_size=1.5,
             dimensions=768,
             notes="the onnx float32 version of open_clip ViT-L-14/openai",
             repo_id="Marqo/onnx-open_clip-ViT-L-14",
@@ -46,9 +48,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-L-14-openai-textual.onnx",
             resolution=224,
             pretrained="openai",
-        ).__dict__,
-        "onnx16/open_clip/ViT-L-14/openai": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/ViT-L-14/openai": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-L-14/openai",
+            memory_size=1.5,
             dimensions=768,
             notes="the onnx float16 version of open_clip ViT-L-14/openai",
             repo_id="Marqo/onnx-open_clip-ViT-L-14",
@@ -56,9 +59,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-L-14-openai-textual.onnx",
             resolution=224,
             pretrained="openai",
-        ).__dict__,
-        "onnx32/open_clip/ViT-L-14/laion400m_e32": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/ViT-L-14/laion400m_e32": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-L-14/laion400m_e32",
+            memory_size=1.5,
             dimensions=768,
             notes="the onnx float32 version of open_clip ViT-L-14/lainon400m_e32",
             repo_id="Marqo/onnx-open_clip-ViT-L-14",
@@ -66,9 +70,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-L-14-laion400m_e32-textual.onnx",
             resolution=224,
             pretrained="laion400m_e32",
-        ).__dict__,
-        "onnx16/open_clip/ViT-L-14/laion400m_e32": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/ViT-L-14/laion400m_e32": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-L-14/laion400m_e32",
+            memory_size=1.5,
             dimensions=768,
             notes="the onnx float16 version of open_clip ViT-L-14/lainon400m_e32",
             repo_id="Marqo/onnx-open_clip-ViT-L-14",
@@ -76,9 +81,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-L-14-laion400m_e32-textual.onnx",
             resolution=224,
             pretrained="laion400m_e32",
-        ).__dict__,
-        "onnx32/open_clip/ViT-L-14/laion2b_s32b_b82k": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/ViT-L-14/laion2b_s32b_b82k": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-L-14/laion2b_s32b_b82k",
+            memory_size=1.5,
             dimensions=768,
             notes="the onnx float32 version of open_clip ViT-L-14/laion2b_s32b_b82k",
             repo_id="Marqo/onnx-open_clip-ViT-L-14",
@@ -86,11 +92,12 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-L-14-laion2b_s32b_b82k-textual.onnx",
             resolution=224,
             pretrained="laionb_s32b_b82k",
-            image_mean="(0.5, 0.5, 0.5)",
-            image_std="(0.5, 0.5, 0.5)",
-        ).__dict__,
-        "onnx16/open_clip/ViT-L-14/laion2b_s32b_b82k": OnnxClipModelProperties(
+            image_mean=(0.5, 0.5, 0.5),
+            image_std=(0.5, 0.5, 0.5),
+        )),
+        "onnx16/open_clip/ViT-L-14/laion2b_s32b_b82k": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-L-14/laion2b_s32b_b82k",
+            memory_size=1.5,
             dimensions=768,
             notes="the onnx float16 version of open_clip ViT-L-14/laion2b_s32b_b82k",
             repo_id="Marqo/onnx-open_clip-ViT-L-14",
@@ -98,11 +105,12 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-L-14-laion2b_s32b_b82k-textual.onnx",
             resolution=224,
             pretrained="laionb_s32b_b82k",
-            image_mean="(0.5, 0.5, 0.5)",
-            image_std="(0.5, 0.5, 0.5)",
-        ).__dict__,
-        "onnx32/open_clip/ViT-L-14-336/openai": OnnxClipModelProperties(
+            image_mean=(0.5, 0.5, 0.5),
+            image_std=(0.5, 0.5, 0.5),
+        )),
+        "onnx32/open_clip/ViT-L-14-336/openai": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-L-14-336/openai",
+            memory_size=1.5,
             dimensions=768,
             notes="the onnx float32 version of open_clip ViT-L-14-336/openai",
             repo_id="Marqo/onnx-open_clip-ViT-L-14-336",
@@ -110,9 +118,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-L-14-336-openai-textual.onnx",
             resolution=336,
             pretrained="openai",
-        ).__dict__,
-        "onnx16/open_clip/ViT-L-14-336/openai": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/ViT-L-14-336/openai": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-L-14-336/openai",
+            memory_size=1.5,
             dimensions=768,
             notes="the onnx float16 version of open_clip ViT-L-14-336/openai",
             repo_id="Marqo/onnx-open_clip-ViT-L-14-336",
@@ -120,9 +129,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-L-14-336-openai-textual.onnx",
             resolution=336,
             pretrained="openai",
-        ).__dict__,
-        "onnx32/open_clip/ViT-B-32/openai": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/ViT-B-32/openai": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-B-32/openai",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float32 version of open_clip ViT-B-32/openai",
             repo_id="Marqo/onnx-open_clip-ViT-B-32",
@@ -130,9 +140,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-B-32-openai-textual.onnx",
             resolution=224,
             pretrained="openai",
-        ).__dict__,
-        "onnx16/open_clip/ViT-B-32/openai": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/ViT-B-32/openai": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-B-32/openai",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float16 version of open_clip ViT-B-32/openai",
             repo_id="Marqo/onnx-open_clip-ViT-B-32",
@@ -140,9 +151,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-B-32-openai-textual.onnx",
             resolution=224,
             pretrained="openai",
-        ).__dict__,
-        "onnx32/open_clip/ViT-B-32/laion400m_e31": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/ViT-B-32/laion400m_e31": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-B-32/laion400m_e31",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float32 version of open_clip ViT-B-32/laion400m_e31",
             repo_id="Marqo/onnx-open_clip-ViT-B-32",
@@ -150,9 +162,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-B-32-laion400m_e31-textual.onnx",
             resolution=224,
             pretrained="laion400m_e31",
-        ).__dict__,
-        "onnx16/open_clip/ViT-B-32/laion400m_e31": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/ViT-B-32/laion400m_e31": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-B-32/laion400m_e31",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float16 version of open_clip ViT-B-32/laion400m_e31",
             repo_id="Marqo/onnx-open_clip-ViT-B-32",
@@ -160,9 +173,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-B-32-laion400m_e31-textual.onnx",
             resolution=224,
             pretrained="laion400m_e31",
-        ).__dict__,
-        "onnx32/open_clip/ViT-B-32/laion400m_e32": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/ViT-B-32/laion400m_e32": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-B-32/laion400m_e32",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float32 version of open_clip ViT-B-32/laion400m_e32",
             repo_id="Marqo/onnx-open_clip-ViT-B-32",
@@ -170,9 +184,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-B-32-laion400m_e32-textual.onnx",
             resolution=224,
             pretrained="laion400m_e32",
-        ).__dict__,
-        "onnx16/open_clip/ViT-B-32/laion400m_e32": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/ViT-B-32/laion400m_e32": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-B-32/laion400m_e32",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float16 version of open_clip ViT-B-32/laion400m_e32",
             repo_id="Marqo/onnx-open_clip-ViT-B-32",
@@ -180,9 +195,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-B-32-laion400m_e32-textual.onnx",
             resolution=224,
             pretrained="laion400m_e32",
-        ).__dict__,
-        "onnx32/open_clip/ViT-B-32/laion2b_e16": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/ViT-B-32/laion2b_e16": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-B-32/laion2b_e16",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float32 version of open_clip ViT-B-32/laion2b_e16",
             repo_id="Marqo/onnx-open_clip-ViT-B-32",
@@ -190,9 +206,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-B-32-laion2b_e16-textual.onnx",
             resolution=224,
             pretrained="laion2b_e16",
-        ).__dict__,
-        "onnx16/open_clip/ViT-B-32/laion2b_e16": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/ViT-B-32/laion2b_e16": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-B-32/laion2b_e16",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float16 version of open_clip ViT-B-32/laion2b_e16",
             repo_id="Marqo/onnx-open_clip-ViT-B-32",
@@ -200,9 +217,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-B-32-laion2b_e16-textual.onnx",
             resolution=224,
             pretrained="laion2b_e16",
-        ).__dict__,
-        "onnx32/open_clip/ViT-B-32-quickgelu/openai": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/ViT-B-32-quickgelu/openai": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-B-32-quickgelu/openai",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float32 version of open_clip ViT-B-32-quickgelu/openai",
             repo_id="Marqo/onnx-open_clip-ViT-B-32-quickgelu",
@@ -210,9 +228,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-B-32-quickgelu-openai-textual.onnx",
             resolution=224,
             pretrained="openai",
-        ).__dict__,
-        "onnx16/open_clip/ViT-B-32-quickgelu/openai": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/ViT-B-32-quickgelu/openai": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-B-32-quickgelu/openai",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float16 version of open_clip ViT-B-32-quickgelu/openai",
             repo_id="Marqo/onnx-open_clip-ViT-B-32-quickgelu",
@@ -220,9 +239,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-B-32-quickgelu-openai-textual.onnx",
             resolution=224,
             pretrained="openai",
-        ).__dict__,
-        "onnx32/open_clip/ViT-B-32-quickgelu/laion400m_e31": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/ViT-B-32-quickgelu/laion400m_e31": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-B-32-quickgelu/laion400m_e31",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float32 version of open_clip ViT-B-32-quickgelu/laion400m_e31",
             repo_id="Marqo/onnx-open_clip-ViT-B-32-quickgelu",
@@ -230,9 +250,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-B-32-quickgelu-laion400m_e31-textual.onnx",
             resolution=224,
             pretrained="laion400m_e31",
-        ).__dict__,
-        "onnx16/open_clip/ViT-B-32-quickgelu/laion400m_e31": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/ViT-B-32-quickgelu/laion400m_e31": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-B-32-quickgelu/laion400m_e31",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float16 version of open_clip ViT-B-32-quickgelu/laion400m_e31",
             repo_id="Marqo/onnx-open_clip-ViT-B-32-quickgelu",
@@ -240,9 +261,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-B-32-quickgelu-laion400m_e31-textual.onnx",
             resolution=224,
             pretrained="laion400m_e31",
-                ).__dict__,
-        "onnx16/open_clip/ViT-B-32-quickgelu/laion400m_e32": OnnxClipModelProperties(
+                )),
+        "onnx16/open_clip/ViT-B-32-quickgelu/laion400m_e32": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-B-32-quickgelu/laion400m_e32",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float16 version of open_clip ViT-B-32-quickgelu/laion400m_e32",
             repo_id="Marqo/onnx-open_clip-ViT-B-32-quickgelu",
@@ -250,9 +272,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-B-32-quickgelu-laion400m_e32-textual.onnx",
             resolution=224,
             pretrained="laion400m_e32",
-        ).__dict__,
-        "onnx32/open_clip/ViT-B-32-quickgelu/laion400m_e32": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/ViT-B-32-quickgelu/laion400m_e32": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-B-32-quickgelu/laion400m_e32",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float32 version of open_clip ViT-B-32-quickgelu/laion400m_e32",
             repo_id="Marqo/onnx-open_clip-ViT-B-32-quickgelu",
@@ -260,9 +283,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-B-32-quickgelu-laion400m_e32-textual.onnx",
             resolution=224,
             pretrained="laion400m_e32",
-        ).__dict__,
-        "onnx16/open_clip/ViT-B-16/openai": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/ViT-B-16/openai": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-B-16/openai",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float16 version of open_clip ViT-B-16/openai",
             repo_id="Marqo/onnx-open_clip-ViT-B-16",
@@ -270,9 +294,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-B-16-openai-textual.onnx",
             resolution=224,
             pretrained="openai",
-        ).__dict__,
-        "onnx32/open_clip/ViT-B-16/openai": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/ViT-B-16/openai": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-B-16/openai",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float32 version of open_clip ViT-B-16/openai",
             repo_id="Marqo/onnx-open_clip-ViT-B-16",
@@ -280,9 +305,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-B-16-openai-textual.onnx",
             resolution=224,
             pretrained="openai",
-        ).__dict__,
-        "onnx16/open_clip/ViT-B-16/laion400m_e31": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/ViT-B-16/laion400m_e31": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-B-16/laion400m_e31",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float16 version of open_clip ViT-B-16/laion400m_e31",
             repo_id="Marqo/onnx-open_clip-ViT-B-16",
@@ -290,9 +316,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-B-16-laion400m_e31-textual.onnx",
             resolution=224,
             pretrained="laion400m_e31",
-        ).__dict__,
-        "onnx32/open_clip/ViT-B-16/laion400m_e31": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/ViT-B-16/laion400m_e31": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-B-16/laion400m_e31",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float32 version of open_clip ViT-B-16/laion400m_e31",
             repo_id="Marqo/onnx-open_clip-ViT-B-16",
@@ -300,9 +327,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-B-16-laion400m_e31-textual.onnx",
             resolution=224,
             pretrained="laion400m_e31",
-        ).__dict__,
-        "onnx16/open_clip/ViT-B-16/laion400m_e32": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/ViT-B-16/laion400m_e32": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-B-16/laion400m_e32",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float16 version of open_clip ViT-B-16/laion400m_e32",
             repo_id="Marqo/onnx-open_clip-ViT-B-16",
@@ -310,9 +338,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-B-16-laion400m_e32-textual.onnx",
             resolution=224,
             pretrained="laion400m_e32",
-        ).__dict__,
-        "onnx32/open_clip/ViT-B-16/laion400m_e32": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/ViT-B-16/laion400m_e32": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-B-16/laion400m_e32",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float32 version of open_clip ViT-B-16/laion400m_e32",
             repo_id="Marqo/onnx-open_clip-ViT-B-16",
@@ -320,9 +349,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-B-16-laion400m_e32-textual.onnx",
             resolution=224,
             pretrained="laion400m_e32",
-        ).__dict__,
-        "onnx16/open_clip/ViT-B-16-plus-240/laion400m_e31": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/ViT-B-16-plus-240/laion400m_e31": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-B-16-plus-240/laion400m_e31",
+            memory_size=1,
             dimensions=640,
             notes="the onnx float16 version of open_clip ViT-B-16-plus-240/laion400m_e31",
             repo_id="Marqo/onnx-open_clip-ViT-B-16-plus-240",
@@ -330,9 +360,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-B-16-plus-240-laion400m_e31-textual.onnx",
             resolution=240,
             pretrained="laion400m_e31",
-        ).__dict__,
-        "onnx32/open_clip/ViT-B-16-plus-240/laion400m_e31": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/ViT-B-16-plus-240/laion400m_e31": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-B-16-plus-240/laion400m_e31",
+            memory_size=1,
             dimensions=640,
             notes="the onnx float32 version of open_clip ViT-B-16-plus-240/laion400m_e31",
             repo_id="Marqo/onnx-open_clip-ViT-B-16-plus-240",
@@ -340,9 +371,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-B-16-plus-240-laion400m_e31-textual.onnx",
             resolution=240,
             pretrained="laion400m_e31",
-        ).__dict__,
-        "onnx16/open_clip/ViT-B-16-plus-240/laion400m_e32": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/ViT-B-16-plus-240/laion400m_e32": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-B-16-plus-240/laion400m_e32",
+            memory_size=1,
             dimensions=640,
             notes="the onnx float16 version of open_clip ViT-B-16-plus-240/laion400m_e32",
             repo_id="Marqo/onnx-open_clip-ViT-B-16-plus-240",
@@ -350,9 +382,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-B-16-plus-240-laion400m_e32-textual.onnx",
             resolution=240,
             pretrained="laion400m_e32",
-        ).__dict__,
-        "onnx32/open_clip/ViT-B-16-plus-240/laion400m_e32": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/ViT-B-16-plus-240/laion400m_e32": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-B-16-plus-240/laion400m_e32",
+            memory_size=1,
             dimensions=640,
             notes="the onnx float32 version of open_clip ViT-B-16-plus-240/laion400m_e32",
             repo_id="Marqo/onnx-open_clip-ViT-B-16-plus-240",
@@ -360,9 +393,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-B-16-plus-240-laion400m_e32-textual.onnx",
             resolution=240,
             pretrained="laion400m_e32",
-        ).__dict__,
-        "onnx16/open_clip/ViT-H-14/laion2b_s32b_b79k": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/ViT-H-14/laion2b_s32b_b79k": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-H-14/laion2b_s32b_b79k",
+            memory_size=5,
             dimensions=1024,
             notes="the onnx float16 version of open_clip ViT-H-14/laion2b_s32b_b79k",
             repo_id="Marqo/onnx-open_clip-ViT-H-14",
@@ -370,9 +404,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-H-14-laion2b_s32b_b79k-textual.onnx",
             resolution=224,
             pretrained="laion2b_s32b_b79k",
-        ).__dict__,
-        "onnx32/open_clip/ViT-H-14/laion2b_s32b_b79k": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/ViT-H-14/laion2b_s32b_b79k": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-H-14/laion2b_s32b_b79k",
+            memory_size=5,
             dimensions=1024,
             notes="the onnx float32 version of open_clip ViT-H-14/laion2b_s32b_b79k",
             repo_id="Marqo/onnx-open_clip-ViT-H-14",
@@ -380,9 +415,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-H-14-laion2b_s32b_b79k-textual.onnx",
             resolution=224,
             pretrained="laion2b_s32b_b79k",
-        ).__dict__,
-        "onnx16/open_clip/ViT-g-14/laion2b_s12b_b42k": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/ViT-g-14/laion2b_s12b_b42k": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-g-14/laion2b_s12b_b42k",
+            memory_size=5,
             dimensions=1024,
             notes="the onnx float16 version of open_clip ViT-g-14/laion2b_s12b_b42k",
             repo_id="Marqo/onnx-open_clip-ViT-g-14",
@@ -390,9 +426,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-g-14-laion2b_s12b_b42k-textual.onnx",
             resolution=224,
             pretrained="laion2b_s12b_b42k",
-        ).__dict__,
-        "onnx32/open_clip/ViT-g-14/laion2b_s12b_b42k": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/ViT-g-14/laion2b_s12b_b42k": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-g-14/laion2b_s12b_b42k",
+            memory_size=5,
             dimensions=1024,
             notes="the onnx float32 version of open_clip ViT-g-14/laion2b_s12b_b42k",
             repo_id="Marqo/onnx-open_clip-ViT-g-14",
@@ -400,9 +437,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-ViT-g-14-laion2b_s12b_b42k-textual.onnx",
             resolution=224,
             pretrained="laion2b_s12b_b42k",
-        ).__dict__,
-        "onnx16/open_clip/RN50/openai": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/RN50/openai": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/RN50/openai",
+            memory_size=1,
             dimensions=1024,
             notes="the onnx float16 version of open_clip RN50/openai",
             repo_id="Marqo/onnx-open_clip-RN50",
@@ -410,9 +448,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-RN50-openai-textual.onnx",
             resolution=224,
             pretrained="openai",
-        ).__dict__,
-        "onnx32/open_clip/RN50/openai": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/RN50/openai": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/RN50/openai",
+            memory_size=1,
             dimensions=1024,
             notes="the onnx float32 version of open_clip RN50/openai",
             repo_id="Marqo/onnx-open_clip-RN50",
@@ -420,9 +459,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-RN50-openai-textual.onnx",
             resolution=224,
             pretrained="openai",
-        ).__dict__,
-        "onnx16/open_clip/RN50/yfcc15m": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/RN50/yfcc15m": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/RN50/yfcc15m",
+            memory_size=1,
             dimensions=1024,
             notes="the onnx float16 version of open_clip RN50/yfcc15m",
             repo_id="Marqo/onnx-open_clip-RN50",
@@ -430,9 +470,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-RN50-yfcc15m-textual.onnx",
             resolution=224,
             pretrained="yfcc15m",
-        ).__dict__,
-        "onnx32/open_clip/RN50/yfcc15m": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/RN50/yfcc15m": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/RN50/yfcc15m",
+            memory_size=1,
             dimensions=1024,
             notes="the onnx float32 version of open_clip RN50/yfcc15m",
             repo_id="Marqo/onnx-open_clip-RN50",
@@ -440,9 +481,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-RN50-yfcc15m-textual.onnx",
             resolution=224,
             pretrained="yfcc15m",
-        ).__dict__,
-        "onnx16/open_clip/RN50/cc12m": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/RN50/cc12m": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/RN50/cc12m",
+            memory_size=1,
             dimensions=1024,
             notes="the onnx float16 version of open_clip RN50/cc12m",
             repo_id="Marqo/onnx-open_clip-RN50",
@@ -450,9 +492,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-RN50-cc12m-textual.onnx",
             resolution=224,
             pretrained="cc12m",
-        ).__dict__,
-        "onnx32/open_clip/RN50/cc12m": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/RN50/cc12m": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/RN50/cc12m",
+            memory_size=1,
             dimensions=1024,
             notes="the onnx float32 version of open_clip RN50/cc12m",
             repo_id="Marqo/onnx-open_clip-RN50",
@@ -460,9 +503,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-RN50-cc12m-textual.onnx",
             resolution=224,
             pretrained="cc12m",
-        ).__dict__,
-        "onnx16/open_clip/RN50-quickgelu/openai": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/RN50-quickgelu/openai": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/RN50-quickgelu/openai",
+            memory_size=1,
             dimensions=1024,
             notes="the onnx float16 version of open_clip RN50-quickgelu/openai",
             repo_id="Marqo/onnx-open_clip-RN50-quickgelu",
@@ -470,9 +514,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-RN50-quickgelu-openai-textual.onnx",
             resolution=224,
             pretrained="openai",
-        ).__dict__,
-        "onnx32/open_clip/RN50-quickgelu/openai": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/RN50-quickgelu/openai": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/RN50-quickgelu/openai",
+            memory_size=1,
             dimensions=1024,
             notes="the onnx float32 version of open_clip RN50-quickgelu/openai",
             repo_id="Marqo/onnx-open_clip-RN50-quickgelu",
@@ -480,9 +525,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-RN50-quickgelu-openai-textual.onnx",
             resolution=224,
             pretrained="openai",
-        ).__dict__,
-        "onnx16/open_clip/RN50-quickgelu/yfcc15m": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/RN50-quickgelu/yfcc15m": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/RN50-quickgelu/yfcc15m",
+            memory_size=1,
             dimensions=1024,
             notes="the onnx float16 version of open_clip RN50-quickgelu/yfcc15m",
             repo_id="Marqo/onnx-open_clip-RN50-quickgelu",
@@ -490,9 +536,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-RN50-quickgelu-yfcc15m-textual.onnx",
             resolution=224,
             pretrained="yfcc15m",
-        ).__dict__,
-        "onnx32/open_clip/RN50-quickgelu/yfcc15m": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/RN50-quickgelu/yfcc15m": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/RN50-quickgelu/yfcc15m",
+            memory_size=1,
             dimensions=1024,
             notes="the onnx float32 version of open_clip RN50-quickgelu/yfcc15m",
             repo_id="Marqo/onnx-open_clip-RN50-quickgelu",
@@ -500,9 +547,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-RN50-quickgelu-yfcc15m-textual.onnx",
             resolution=224,
             pretrained="yfcc15m",
-        ).__dict__,
-        "onnx16/open_clip/RN50-quickgelu/cc12m": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/RN50-quickgelu/cc12m": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/RN50-quickgelu/cc12m",
+            memory_size=1,
             dimensions=1024,
             notes="the onnx float16 version of open_clip RN50-quickgelu/cc12m",
             repo_id="Marqo/onnx-open_clip-RN50-quickgelu",
@@ -510,9 +558,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-RN50-quickgelu-cc12m-textual.onnx",
             resolution=224,
             pretrained="cc12m",
-        ).__dict__,
-        "onnx32/open_clip/RN50-quickgelu/cc12m": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/RN50-quickgelu/cc12m": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/RN50-quickgelu/cc12m",
+            memory_size=1,
             dimensions=1024,
             notes="the onnx float32 version of open_clip RN50-quickgelu/cc12m",
             repo_id="Marqo/onnx-open_clip-RN50-quickgelu",
@@ -520,9 +569,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-RN50-quickgelu-cc12m-textual.onnx",
             resolution=224,
             pretrained="cc12m",
-        ).__dict__,
-        "onnx16/open_clip/RN101/openai": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/RN101/openai": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/RN101/openai",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float16 version of open_clip RN101/openai",
             repo_id="Marqo/onnx-open_clip-RN101",
@@ -530,9 +580,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-RN101-openai-textual.onnx",
             resolution=224,
             pretrained="openai",
-        ).__dict__,
-        "onnx32/open_clip/RN101/openai": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/RN101/openai": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/RN101/openai",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float32 version of open_clip RN101/openai",
             repo_id="Marqo/onnx-open_clip-RN101",
@@ -540,9 +591,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-RN101-openai-textual.onnx",
             resolution=224,
             pretrained="openai",
-        ).__dict__,
-        "onnx16/open_clip/RN101/yfcc15m": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/RN101/yfcc15m": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/RN101/yfcc15m",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float16 version of open_clip RN101/yfcc15m",
             repo_id="Marqo/onnx-open_clip-RN101",
@@ -550,9 +602,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-RN101-yfcc15m-textual.onnx",
             resolution=224,
             pretrained="yfcc15m",
-        ).__dict__,
-        "onnx32/open_clip/RN101/yfcc15m": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/RN101/yfcc15m": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/RN101/yfcc15m",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float32 version of open_clip RN101/yfcc15m",
             repo_id="Marqo/onnx-open_clip-RN101",
@@ -560,9 +613,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-RN101-yfcc15m-textual.onnx",
             resolution=224,
             pretrained="yfcc15m",
-        ).__dict__,
-        "onnx16/open_clip/RN101-quickgelu/openai": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/RN101-quickgelu/openai": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/RN101-quickgelu/openai",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float16 version of open_clip RN101-quickgelu/openai",
             repo_id="Marqo/onnx-open_clip-RN101-quickgelu",
@@ -570,9 +624,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-RN101-quickgelu-openai-textual.onnx",
             resolution=224,
             pretrained="openai",
-        ).__dict__,
-        "onnx32/open_clip/RN101-quickgelu/openai": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/RN101-quickgelu/openai": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/RN101-quickgelu/openai",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float32 version of open_clip RN101-quickgelu/openai",
             repo_id="Marqo/onnx-open_clip-RN101-quickgelu",
@@ -580,9 +635,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-RN101-quickgelu-openai-textual.onnx",
             resolution=224,
             pretrained="openai",
-        ).__dict__,
-        "onnx16/open_clip/RN101-quickgelu/yfcc15m": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/RN101-quickgelu/yfcc15m": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/RN101-quickgelu/yfcc15m",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float16 version of open_clip RN101-quickgelu/yfcc15m",
             repo_id="Marqo/onnx-open_clip-RN101-quickgelu",
@@ -590,9 +646,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-RN101-quickgelu-yfcc15m-textual.onnx",
             resolution=224,
             pretrained="yfcc15m",
-        ).__dict__,
-        "onnx32/open_clip/RN101-quickgelu/yfcc15m": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/RN101-quickgelu/yfcc15m": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/RN101-quickgelu/yfcc15m",
+            memory_size=1,
             dimensions=512,
             notes="the onnx float32 version of open_clip RN101-quickgelu/yfcc15m",
             repo_id="Marqo/onnx-open_clip-RN101-quickgelu",
@@ -600,9 +657,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-RN101-quickgelu-yfcc15m-textual.onnx",
             resolution=224,
             pretrained="yfcc15m",
-        ).__dict__,
-        "onnx16/open_clip/RN50x4/openai": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/RN50x4/openai": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/RN50x4/openai",
+            memory_size=1,
             dimensions=640,
             notes="the onnx float16 version of open_clip RN50x4/openai",
             repo_id="Marqo/onnx-open_clip-RN50x4",
@@ -610,9 +668,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-RN50x4-openai-textual.onnx",
             resolution=288,
             pretrained="openai",
-        ).__dict__,
-        "onnx32/open_clip/RN50x4/openai": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/RN50x4/openai": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/RN50x4/openai",
+            memory_size=1,
             dimensions=640,
             notes="the onnx float32 version of open_clip RN50x4/openai",
             repo_id="Marqo/onnx-open_clip-RN50x4",
@@ -620,9 +679,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-RN50x4-openai-textual.onnx",
             resolution=288,
             pretrained="openai",
-        ).__dict__,
-        "onnx16/open_clip/RN50x16/openai": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/RN50x16/openai": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/RN50x16/openai",
+            memory_size=1,
             dimensions=768,
             notes="the onnx float16 version of open_clip RN50x16/openai",
             repo_id="Marqo/onnx-open_clip-RN50x16",
@@ -630,9 +690,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-RN50x16-openai-textual.onnx",
             resolution=384,
             pretrained="openai",
-        ).__dict__,
-        "onnx32/open_clip/RN50x16/openai": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/RN50x16/openai": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/RN50x16/openai",
+            memory_size=1,
             dimensions=768,
             notes="the onnx float32 version of open_clip RN50x16/openai",
             repo_id="Marqo/onnx-open_clip-RN50x16",
@@ -640,9 +701,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-RN50x16-openai-textual.onnx",
             resolution=384,
             pretrained="openai",
-        ).__dict__,
-        "onnx16/open_clip/RN50x64/openai": OnnxClipModelProperties(
+        )),
+        "onnx16/open_clip/RN50x64/openai": vars(OnnxClipModelProperties(
             name="onnx16/open_clip/RN50x64/openai",
+            memory_size=1,
             dimensions=1024,
             notes="the onnx float16 version of open_clip RN50x64/openai",
             repo_id="Marqo/onnx-open_clip-RN50x64",
@@ -650,9 +712,10 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-RN50x64-openai-textual.onnx",
             resolution=448,
             pretrained="openai",
-        ).__dict__,
-        "onnx32/open_clip/RN50x64/openai": OnnxClipModelProperties(
+        )),
+        "onnx32/open_clip/RN50x64/openai": vars(OnnxClipModelProperties(
             name="onnx32/open_clip/RN50x64/openai",
+            memory_size=1,
             dimensions=1024,
             notes="the onnx float32 version of open_clip RN50x64/openai",
             repo_id="Marqo/onnx-open_clip-RN50x64",
@@ -660,7 +723,7 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx32-open_clip-RN50x64-openai-textual.onnx",
             resolution=448,
             pretrained="openai",
-        ).__dict__,
+        )),
     }
 
     return ONNX_CLIP_MODEL_PROPERTIES

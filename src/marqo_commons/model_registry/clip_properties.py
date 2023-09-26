@@ -12,55 +12,63 @@ class ClipProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
     modality: list[Modality] = [Modality.image, Modality.text]
     type: str = "clip"
-    memory_size: float = 0  # TODO: add memory size
 
 
 def _get_clip_properties() -> Dict:
     CLIP_MODEL_PROPERTIES = {
-        'RN50': ClipProperties(
+        'RN50': vars(ClipProperties(
             name="RN50",
+            memory_size=1,
             dimensions=1024,
             notes="CLIP resnet50",
-        ).__dict__,
-        'RN101': ClipProperties(
+        )),
+        'RN101': vars(ClipProperties(
             name="RN101",
+            memory_size=1,
             dimensions=512,
             notes="CLIP resnet101",
-        ).__dict__,
-        'RN50x4': ClipProperties(
+        )),
+        'RN50x4': vars(ClipProperties(
             name="RN50x4",
+            memory_size=1,
             dimensions=640,
             notes="CLIP resnet50x4",
-        ).__dict__,
-        'RN50x16': ClipProperties(
+        )),
+        'RN50x16': vars(ClipProperties(
             name="RN50x16",
+            memory_size=1,
             dimensions=768,
             notes="CLIP resnet50x16",
-        ).__dict__,
-        'RN50x64': ClipProperties(
+        )),
+        'RN50x64': vars(ClipProperties(
             name="RN50x64",
+            memory_size=1,
             dimensions=1024,
             notes="CLIP resnet50x64",
-        ).__dict__,
-        'ViT-B/32': ClipProperties(
+        )),
+        'ViT-B/32': vars(ClipProperties(
             name="ViT-B/32",
+            memory_size=1,
             dimensions=512,
             notes="CLIP ViT-B/32",
-        ).__dict__,
-        'ViT-B/16': ClipProperties(
+        )),
+        'ViT-B/16': vars(ClipProperties(
             name="ViT-B/16",
+            memory_size=1,
             dimensions=512,
             notes="CLIP ViT-B/16",
-        ).__dict__,
-        'ViT-L/14': ClipProperties(
+        )),
+        'ViT-L/14': vars(ClipProperties(
             name="ViT-L/14",
+            memory_size=1.5,
             dimensions=768,
             notes="CLIP ViT-L/14",
-        ).__dict__,
-        'ViT-L/14@336px': ClipProperties(
+        )),
+        'ViT-L/14@336px': vars(ClipProperties(
             name="ViT-L/14@336px",
+            memory_size=1.5,
             dimensions=768,
             notes="CLIP ViT-L/14@336px",
-        ).__dict__,
+        )),
     }
     return CLIP_MODEL_PROPERTIES
