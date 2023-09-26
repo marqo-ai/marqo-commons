@@ -7,7 +7,7 @@ class OpenClipModelProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
     modality: list[Modality] = [Modality.text, Modality.image]
     type: str = "open_clip"
-    memory_size: int = 0  # TODO: add memory size
+    memory_size: float = 0  # TODO: add memory size
     pretrained: str
     notes: str = ""
 

@@ -7,7 +7,7 @@ class HFModelProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
     modality: list[Modality] = [Modality.text]
     type: str = "hf"
-    memory_size: int = 0  # TODO: add memory size
+    memory_size: float = 0  # TODO: add memory size
     tokens: int
     notes: str = ""
 

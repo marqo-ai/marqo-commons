@@ -7,7 +7,7 @@ class MultilingualClipModelProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
     modality: list[Modality] = [Modality.text, Modality.image]
     type: str = "multilingual_clip"
-    memory_size: int = 0  # TODO: add memory size
+    memory_size: float = 0  # TODO: add memory size
     visual_model: str
     textual_model: str
     notes: str = ""

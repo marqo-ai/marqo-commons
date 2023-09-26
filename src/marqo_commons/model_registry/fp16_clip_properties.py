@@ -7,7 +7,7 @@ class FP16ClipModelProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
     modality: list[Modality] = [Modality.image, Modality.text]
     type: str = "fp16_clip"
-    memory_size: int = 0  # TODO: add memory size
+    memory_size: float = 0  # TODO: add memory size
 
 
 def _get_fp16_clip_properties() -> Dict:

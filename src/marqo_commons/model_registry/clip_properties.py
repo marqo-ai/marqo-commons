@@ -12,7 +12,7 @@ class ClipProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
     modality: list[Modality] = [Modality.image, Modality.text]
     type: str = "clip"
-    memory_size: int = 0  # TODO: add memory size
+    memory_size: float = 0  # TODO: add memory size
 
 
 def _get_clip_properties() -> Dict:
