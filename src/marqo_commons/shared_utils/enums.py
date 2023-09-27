@@ -6,6 +6,19 @@ class Modality(str, Enum):
     text = "text"
 
 
+class ModelType(str, Enum):
+    clip = "clip"
+    fp16_clip = "fp16_clip"
+    hf = "hf"
+    multilingual_clip = "multilingual_clip"
+    clip_onnx = "clip_onnx"
+    open_clip = "open_clip"
+    random = "random"
+    sbert_onnx = "sbert_onnx"
+    sbert = "sbert"
+    test = "test"
+
+
 class VectorNumericType(str, Enum):
     float32 = "float32"
 

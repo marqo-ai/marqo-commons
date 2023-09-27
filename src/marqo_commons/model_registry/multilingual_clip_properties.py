@@ -1,12 +1,12 @@
 from typing import Dict
 
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality
+from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
 
 
 class MultilingualClipModelProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
     modality: list[Modality] = [Modality.text, Modality.image]
-    type: str = "multilingual_clip"
+    type: ModelType = ModelType.multilingual_clip
     visual_model: str
     textual_model: str
     notes: str = ""

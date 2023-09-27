@@ -48,4 +48,4 @@ def get_model_properties_dict() -> Dict:
 
 
 def get_model_properties_json() -> str:
-    return json.dumps(get_model_properties_dict(), indent=4)
+    return json.dumps(get_model_properties_dict())

@@ -1,12 +1,12 @@
 from typing import Dict
 
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality
+from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
 
 
 class SbertProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
     modality: list[Modality] = [Modality.text]
-    type: str = "sbert"
+    type: ModelType = ModelType.sbert
     tokens: int
     notes: str = ""
 

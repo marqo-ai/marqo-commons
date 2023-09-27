@@ -1,12 +1,12 @@
 from typing import Dict
 
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality
+from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
 
 
 class FP16ClipModelProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
     modality: list[Modality] = [Modality.image, Modality.text]
-    type: str = "fp16_clip"
+    type: ModelType = ModelType.fp16_clip
 
 
 def _get_fp16_clip_properties() -> Dict:

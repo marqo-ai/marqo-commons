@@ -1,12 +1,12 @@
 from typing import Dict, Optional
 
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality
+from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
 
 
 class OnnxClipModelProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
     modality: list[Modality] = [Modality.text, Modality.image]
-    type: str = "clip_onnx"
+    type: ModelType = ModelType.clip_onnx
     repo_id: str
     visual_file: str
     textual_file: str
