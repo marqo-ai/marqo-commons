@@ -5,6 +5,7 @@ from marqo_commons.model_registry.model_properties_object import ModelProperties
 
 class SbertProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
+    default_memory_size: float = 0.7
     modality: List[Modality] = [Modality.text]
     type: ModelType = ModelType.sbert
     tokens: int
@@ -13,72 +14,61 @@ class SbertProperties(ModelProperties):
 
 def _get_sbert_properties() -> Dict:
     SBERT_MODEL_PROPERTIES = {
-        "sentence-transformers/all-MiniLM-L6-v1": vars(SbertProperties(
+        "sentence-transformers/all-MiniLM-L6-v1": SbertProperties(
             name="sentence-transformers/all-MiniLM-L6-v1",
-            memory_size=0.7,
             dimensions=384,
             tokens=128,
-        )),
-        "sentence-transformers/all-MiniLM-L6-v2": vars(SbertProperties(
+        ).to_dict(),
+        "sentence-transformers/all-MiniLM-L6-v2": SbertProperties(
             name="sentence-transformers/all-MiniLM-L6-v2",
-            memory_size=0.7,
             dimensions=384,
             tokens=256,
-        )),
-        "sentence-transformers/all-mpnet-base-v1": vars(SbertProperties(
+        ).to_dict(),
+        "sentence-transformers/all-mpnet-base-v1": SbertProperties(
             name="sentence-transformers/all-mpnet-base-v1",
-            memory_size=0.7,
             dimensions=768,
             tokens=128,
-        )),
-        "sentence-transformers/all-mpnet-base-v2": vars(SbertProperties(
+        ).to_dict(),
+        "sentence-transformers/all-mpnet-base-v2": SbertProperties(
             name="sentence-transformers/all-mpnet-base-v2",
-            memory_size=0.7,
             dimensions=768,
             tokens=128,
-        )),
-        "sentence-transformers/stsb-xlm-r-multilingual": vars(SbertProperties(
+        ).to_dict(),
+        "sentence-transformers/stsb-xlm-r-multilingual": SbertProperties(
             name="sentence-transformers/stsb-xlm-r-multilingual",
-            memory_size=0.7,
             dimensions=768,
             tokens=128,
-        )),
-        "flax-sentence-embeddings/all_datasets_v3_MiniLM-L12": vars(SbertProperties(
+        ).to_dict(),
+        "flax-sentence-embeddings/all_datasets_v3_MiniLM-L12": SbertProperties(
             name="flax-sentence-embeddings/all_datasets_v3_MiniLM-L12",
-            memory_size=0.7,
             dimensions=384,
             tokens=128,
-        )),
-        "flax-sentence-embeddings/all_datasets_v3_MiniLM-L6": vars(SbertProperties(
+        ).to_dict(),
+        "flax-sentence-embeddings/all_datasets_v3_MiniLM-L6": SbertProperties(
             name="flax-sentence-embeddings/all_datasets_v3_MiniLM-L6",
-            memory_size=0.7,
             dimensions=384,
             tokens=128,
-        )),
-        "flax-sentence-embeddings/all_datasets_v4_MiniLM-L12": vars(SbertProperties(
+        ).to_dict(),
+        "flax-sentence-embeddings/all_datasets_v4_MiniLM-L12": SbertProperties(
             name="flax-sentence-embeddings/all_datasets_v4_MiniLM-L12",
-            memory_size=0.7,
             dimensions=384,
             tokens=128,
-        )),
-        "flax-sentence-embeddings/all_datasets_v4_MiniLM-L6": vars(SbertProperties(
+        ).to_dict(),
+        "flax-sentence-embeddings/all_datasets_v4_MiniLM-L6": SbertProperties(
             name="flax-sentence-embeddings/all_datasets_v4_MiniLM-L6",
-            memory_size=0.7,
             dimensions=384,
             tokens=128,
-        )),
-        "flax-sentence-embeddings/all_datasets_v3_mpnet-base": vars(SbertProperties(
+        ).to_dict(),
+        "flax-sentence-embeddings/all_datasets_v3_mpnet-base": SbertProperties(
             name="flax-sentence-embeddings/all_datasets_v3_mpnet-base",
-            memory_size=0.7,
             dimensions=768,
             tokens=128,
-        )),
-        "flax-sentence-embeddings/all_datasets_v4_mpnet-base": vars(SbertProperties(
+        ).to_dict(),
+        "flax-sentence-embeddings/all_datasets_v4_mpnet-base": SbertProperties(
             name="flax-sentence-embeddings/all_datasets_v4_mpnet-base",
-            memory_size=0.7,
             dimensions=768,
             tokens=128,
-        )),
+        ).to_dict(),
     }
 
     return SBERT_MODEL_PROPERTIES

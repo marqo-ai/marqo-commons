@@ -5,6 +5,7 @@ from marqo_commons.model_registry.model_properties_object import ModelProperties
 
 class RandomModelProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
+    default_memory_size: float = 0.1
     modality: List[Modality] = [Modality.text, Modality.image]
     type: ModelType = ModelType.random
     tokens: int
@@ -12,30 +13,26 @@ class RandomModelProperties(ModelProperties):
 
 def _get_random_properties() -> Dict:
     RANDOM_MODEL_PROPERTIES = {
-        "random": vars(RandomModelProperties(
+        "random": RandomModelProperties(
             name="random",
-            memory_size=0.1,
             dimensions=384,
             tokens=128,
-        )),
-        "random/large": vars(RandomModelProperties(
+        ).to_dict(),
+        "random/large": RandomModelProperties(
             name="random/large",
-            memory_size=0.1,
             dimensions=768,
             tokens=128,
-        )),
-        "random/small": vars(RandomModelProperties(
+        ).to_dict(),
+        "random/small": RandomModelProperties(
             name="random/small",
-            memory_size=0.1,
             dimensions=32,
             tokens=128,
-        )),
-        "random/medium": vars(RandomModelProperties(
+        ).to_dict(),
+        "random/medium": RandomModelProperties(
             name="random/medium",
-            memory_size=0.1,
             dimensions=128,
             tokens=128,
-        )),
+        ).to_dict(),
     }
 
     return RANDOM_MODEL_PROPERTIES
