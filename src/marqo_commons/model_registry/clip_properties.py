@@ -5,12 +5,12 @@ This file defines properties for CLIP models. It is intended to be used in conju
 and should not be used in isolation.
 """
 from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality
-from typing import Dict
+from typing import Dict, List
 
 
 class ClipProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
-    modality: list[Modality] = [Modality.image, Modality.text]
+    modality: List[Modality] = [Modality.image, Modality.text]
     type: str = "clip"
 
 

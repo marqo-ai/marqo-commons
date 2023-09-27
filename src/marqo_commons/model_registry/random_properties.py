@@ -1,11 +1,11 @@
-from typing import Dict
+from typing import Dict, List
 
 from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
 
 
 class RandomModelProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
-    modality: list[Modality] = [Modality.text, Modality.image]
+    modality: List[Modality] = [Modality.text, Modality.image]
     type: ModelType = ModelType.random
     tokens: int
     notes: str = ""

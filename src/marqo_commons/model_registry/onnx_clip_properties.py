@@ -1,19 +1,19 @@
-from typing import Dict, Optional
+from typing import Dict, Optional, List, Tuple
 
 from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
 
 
 class OnnxClipModelProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
-    modality: list[Modality] = [Modality.text, Modality.image]
+    modality: List[Modality] = [Modality.text, Modality.image]
     type: ModelType = ModelType.clip_onnx
     repo_id: str
     visual_file: str
     textual_file: str
     resolution: int
     pretrained: str = None
-    image_mean: Optional[tuple[float, ...]] = None
-    image_std: Optional[tuple[float, ...]] = None
+    image_mean: Optional[Tuple[float, ...]] = None
+    image_std: Optional[Tuple[float, ...]] = None
 
 
 def _get_onnx_clip_properties() -> Dict:

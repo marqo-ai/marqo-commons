@@ -1,3 +1,5 @@
+from typing import List
+
 from pydantic import BaseModel, Field
 from marqo_commons.shared_utils.enums import Modality, VectorNumericType, ModelType
 
@@ -8,6 +10,6 @@ class ModelProperties(BaseModel):
     notes: str = Field(..., title="Model notes")
     type: ModelType = Field(..., title="Model types")
     memory_size: float = Field(..., title="Model memory size")
-    modality: list[Modality] = Field(..., title="Model modality")
+    modality: List[Modality] = Field(..., title="Model modality")
     vector_numeric_type: VectorNumericType = Field(..., title="Model vector numeric type")
 
