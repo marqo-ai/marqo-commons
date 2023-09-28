@@ -31,3 +31,5 @@ class TestUtils(TestCase):
         properties = _get_test_properties()
         self.assertEqual(type(properties["sentence-transformers/test"]), dict)
         self.assertEqual(type(properties["test"]), dict)
+        self.assertNotIn("default_memory_size", properties)
+        self.assertEqual(properties["sentence-transformers/test"]["name"], "sentence-transformers/all-MiniLM-L6-v1")

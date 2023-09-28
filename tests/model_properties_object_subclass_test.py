@@ -2,6 +2,7 @@ from typing import List
 
 from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
 from unittest import TestCase
+from marqo_commons.shared_utils.constants import MODEL_NAME_SIZE_MAPPING
 
 
 class ModelPropertiesTestObject(ModelProperties):
@@ -30,7 +31,7 @@ class TestModelPropertiesSubclass(TestCase):
     def test_subclass_default_memory_size_overrides_parent(self):
         self.assertEqual(1.11, self.basic_model_properties.default_memory_size)
 
-    def test_model_calculation_on_special_type_are_correct(self):
+    def test_size_calculation_on_special_model_name(self):
         model_with_special_type = ModelPropertiesTestObject(
             name="ViT-L/14@336px",
             dimensions=768,
@@ -39,5 +40,5 @@ class TestModelPropertiesSubclass(TestCase):
             modality=[Modality.image, Modality.text],
         )
         dict_representation = model_with_special_type.to_dict()
-        self.assertEqual(1.5, dict_representation["memory_size"])
+        self.assertEqual(MODEL_NAME_SIZE_MAPPING["vit-l-14"], dict_representation["memory_size"])
 

@@ -4,11 +4,12 @@ from unittest import TestCase
 from marqo_commons.settings_validation.settings_validation import validate_index_settings
 from marqo_commons.shared_utils.errors import InvalidSettingsArgError
 
-os.environ["MARQO_MAX_NUMBER_OF_REPLICAS"] = "1"
-os.environ["MARQO_EF_CONSTRUCTION_MAX_VALUE"] = "4096"
-
 
 class TestValidateIndexSettings(TestCase):
+    def setUp(self) -> None:
+        self.MARQO_MAX_NUMBER_OF_REPLICAS = 1
+        self.MARQO_EF_CONSTRUCTION_MAX_VALUE = 4096
+
     @staticmethod
     def get_good_index_settings():
         return {
@@ -88,20 +89,20 @@ class TestValidateIndexSettings(TestCase):
         ]
         for settings in good_settings:
             assert settings == validate_index_settings(settings,
-                                                       MAX_EF_CONSTRUCTION_VALUE=int(
-                                                           os.environ.get("MARQO_EF_CONSTRUCTION_MAX_VALUE")),
-                                                       MAX_NUMBER_OF_REPLICAS=int(
-                                                           os.environ.get("MARQO_MAX_NUMBER_OF_REPLICAS")),
+                                                       MAX_EF_CONSTRUCTION_VALUE=
+                                                       self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                                       MAX_NUMBER_OF_REPLICAS=
+                                                       self.MARQO_MAX_NUMBER_OF_REPLICAS,
                                                        )
 
     def test_validate_index_settings_model_properties(self):
         good_settings = self.get_good_index_settings()
         good_settings['index_defaults']['model_properties'] = dict()
         assert good_settings == validate_index_settings(good_settings,
-                                                        MAX_EF_CONSTRUCTION_VALUE=int(
-                                                            os.environ.get("MARQO_EF_CONSTRUCTION_MAX_VALUE")),
-                                                        MAX_NUMBER_OF_REPLICAS=int(
-                                                            os.environ.get("MARQO_MAX_NUMBER_OF_REPLICAS")),
+                                                        MAX_EF_CONSTRUCTION_VALUE=
+                                                        self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                                        MAX_NUMBER_OF_REPLICAS=
+                                                        self.MARQO_MAX_NUMBER_OF_REPLICAS,
                                                         )
 
     def test_validate_index_settings_bad(self):
@@ -142,10 +143,10 @@ class TestValidateIndexSettings(TestCase):
         for bad_setting in bad_settings:
             try:
                 validate_index_settings(bad_setting,
-                                        MAX_EF_CONSTRUCTION_VALUE=int(
-                                            os.environ.get("MARQO_EF_CONSTRUCTION_MAX_VALUE")),
-                                        MAX_NUMBER_OF_REPLICAS=int(
-                                            os.environ.get("MARQO_MAX_NUMBER_OF_REPLICAS")),
+                                        MAX_EF_CONSTRUCTION_VALUE=
+                                        self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                        MAX_NUMBER_OF_REPLICAS=
+                                        self.MARQO_MAX_NUMBER_OF_REPLICAS,
                                         )
                 raise AssertionError
             except InvalidSettingsArgError as e:
@@ -155,16 +156,16 @@ class TestValidateIndexSettings(TestCase):
         settings = self.get_good_index_settings()
         # base good settings should be OK
         assert settings == validate_index_settings(settings,
-                                                   MAX_EF_CONSTRUCTION_VALUE=int(
-                                                       os.environ.get("MARQO_EF_CONSTRUCTION_MAX_VALUE")),
-                                                   MAX_NUMBER_OF_REPLICAS=int(
-                                                       os.environ.get("MARQO_MAX_NUMBER_OF_REPLICAS")),
+                                                   MAX_EF_CONSTRUCTION_VALUE=
+                                                   self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                                   MAX_NUMBER_OF_REPLICAS=
+                                                   self.MARQO_MAX_NUMBER_OF_REPLICAS,
                                                    )
         del settings['index_defaults']['text_preprocessing']
         try:
             validate_index_settings(settings,
-                                    MAX_EF_CONSTRUCTION_VALUE=int(os.environ.get("MARQO_EF_CONSTRUCTION_MAX_VALUE")),
-                                    MAX_NUMBER_OF_REPLICAS=int(os.environ.get("MARQO_MAX_NUMBER_OF_REPLICAS")),
+                                    MAX_EF_CONSTRUCTION_VALUE=self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                    MAX_NUMBER_OF_REPLICAS=self.MARQO_MAX_NUMBER_OF_REPLICAS,
                                     )
             raise AssertionError
         except InvalidSettingsArgError:
@@ -174,16 +175,16 @@ class TestValidateIndexSettings(TestCase):
         settings = self.get_good_index_settings()
         # base good settings should be OK
         assert settings == validate_index_settings(settings,
-                                                   MAX_EF_CONSTRUCTION_VALUE=int(
-                                                       os.environ.get("MARQO_EF_CONSTRUCTION_MAX_VALUE")),
-                                                   MAX_NUMBER_OF_REPLICAS=int(
-                                                       os.environ.get("MARQO_MAX_NUMBER_OF_REPLICAS")),
+                                                   MAX_EF_CONSTRUCTION_VALUE=
+                                                   self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                                   MAX_NUMBER_OF_REPLICAS=
+                                                   self.MARQO_MAX_NUMBER_OF_REPLICAS,
                                                    )
         del settings['index_defaults']['model']
         try:
             validate_index_settings(settings,
-                                    MAX_EF_CONSTRUCTION_VALUE=int(os.environ.get("MARQO_EF_CONSTRUCTION_MAX_VALUE")),
-                                    MAX_NUMBER_OF_REPLICAS=int(os.environ.get("MARQO_MAX_NUMBER_OF_REPLICAS")),
+                                    MAX_EF_CONSTRUCTION_VALUE=self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                    MAX_NUMBER_OF_REPLICAS=self.MARQO_MAX_NUMBER_OF_REPLICAS,
                                     )
             raise AssertionError
         except InvalidSettingsArgError:
@@ -193,16 +194,16 @@ class TestValidateIndexSettings(TestCase):
         settings = self.get_good_index_settings()
         # base good settings should be OK
         assert settings == validate_index_settings(settings,
-                                                   MAX_EF_CONSTRUCTION_VALUE=int(
-                                                       os.environ.get("MARQO_EF_CONSTRUCTION_MAX_VALUE")),
-                                                   MAX_NUMBER_OF_REPLICAS=int(
-                                                       os.environ.get("MARQO_MAX_NUMBER_OF_REPLICAS")),
+                                                   MAX_EF_CONSTRUCTION_VALUE=
+                                                   self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                                   MAX_NUMBER_OF_REPLICAS=
+                                                   self.MARQO_MAX_NUMBER_OF_REPLICAS,
                                                    )
         del settings['index_defaults']
         try:
             validate_index_settings(settings,
-                                    MAX_EF_CONSTRUCTION_VALUE=int(os.environ.get("MARQO_EF_CONSTRUCTION_MAX_VALUE")),
-                                    MAX_NUMBER_OF_REPLICAS=int(os.environ.get("MARQO_MAX_NUMBER_OF_REPLICAS")),
+                                    MAX_EF_CONSTRUCTION_VALUE=self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                    MAX_NUMBER_OF_REPLICAS=self.MARQO_MAX_NUMBER_OF_REPLICAS,
                                     )
             raise AssertionError
         except InvalidSettingsArgError:
@@ -212,16 +213,16 @@ class TestValidateIndexSettings(TestCase):
         settings = self.get_good_index_settings()
         # base good settings should be OK
         assert settings == validate_index_settings(settings,
-                                                   MAX_EF_CONSTRUCTION_VALUE=int(
-                                                       os.environ.get("MARQO_EF_CONSTRUCTION_MAX_VALUE")),
-                                                   MAX_NUMBER_OF_REPLICAS=int(
-                                                       os.environ.get("MARQO_MAX_NUMBER_OF_REPLICAS")),
+                                                   MAX_EF_CONSTRUCTION_VALUE=
+                                                   self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                                   MAX_NUMBER_OF_REPLICAS=
+                                                   self.MARQO_MAX_NUMBER_OF_REPLICAS,
                                                    )
         settings['number_of_shards'] = -1
         try:
             validate_index_settings(settings,
-                                    MAX_EF_CONSTRUCTION_VALUE=int(os.environ.get("MARQO_EF_CONSTRUCTION_MAX_VALUE")),
-                                    MAX_NUMBER_OF_REPLICAS=int(os.environ.get("MARQO_MAX_NUMBER_OF_REPLICAS")),
+                                    MAX_EF_CONSTRUCTION_VALUE=self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                    MAX_NUMBER_OF_REPLICAS=self.MARQO_MAX_NUMBER_OF_REPLICAS,
                                     )
             raise AssertionError
         except InvalidSettingsArgError as e:
@@ -231,16 +232,16 @@ class TestValidateIndexSettings(TestCase):
         settings = self.get_good_index_settings()
         # base good settings should be OK
         assert settings == validate_index_settings(settings,
-                                                   MAX_EF_CONSTRUCTION_VALUE=int(
-                                                       os.environ.get("MARQO_EF_CONSTRUCTION_MAX_VALUE")),
-                                                   MAX_NUMBER_OF_REPLICAS=int(
-                                                       os.environ.get("MARQO_MAX_NUMBER_OF_REPLICAS")),
+                                                   MAX_EF_CONSTRUCTION_VALUE=
+                                                   self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                                   MAX_NUMBER_OF_REPLICAS=
+                                                   self.MARQO_MAX_NUMBER_OF_REPLICAS,
                                                    )
         settings['number_of_replicas'] = -1
         try:
             validate_index_settings(settings,
-                                    MAX_EF_CONSTRUCTION_VALUE=int(os.environ.get("MARQO_EF_CONSTRUCTION_MAX_VALUE")),
-                                    MAX_NUMBER_OF_REPLICAS=int(os.environ.get("MARQO_MAX_NUMBER_OF_REPLICAS")),
+                                    MAX_EF_CONSTRUCTION_VALUE=self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                    MAX_NUMBER_OF_REPLICAS=self.MARQO_MAX_NUMBER_OF_REPLICAS,
                                     )
             raise AssertionError
         except InvalidSettingsArgError as e:
@@ -250,17 +251,17 @@ class TestValidateIndexSettings(TestCase):
         settings = self.get_good_index_settings()
         # base good settings should be OK
         assert settings == validate_index_settings(settings,
-                                                   MAX_EF_CONSTRUCTION_VALUE=int(
-                                                       os.environ.get("MARQO_EF_CONSTRUCTION_MAX_VALUE")),
-                                                   MAX_NUMBER_OF_REPLICAS=int(
-                                                       os.environ.get("MARQO_MAX_NUMBER_OF_REPLICAS")),
+                                                   MAX_EF_CONSTRUCTION_VALUE=
+                                                   self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                                   MAX_NUMBER_OF_REPLICAS=
+                                                   self.MARQO_MAX_NUMBER_OF_REPLICAS,
                                                    )
         settings['index_defaults']['image_preprocessing']["path_method"] = "frcnn"
         assert settings == validate_index_settings(settings,
-                                                   MAX_EF_CONSTRUCTION_VALUE=int(
-                                                       os.environ.get("MARQO_EF_CONSTRUCTION_MAX_VALUE")),
-                                                   MAX_NUMBER_OF_REPLICAS=int(
-                                                       os.environ.get("MARQO_MAX_NUMBER_OF_REPLICAS")),
+                                                   MAX_EF_CONSTRUCTION_VALUE=
+                                                   self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                                   MAX_NUMBER_OF_REPLICAS=
+                                                   self.MARQO_MAX_NUMBER_OF_REPLICAS,
                                                    )
 
     def test_validate_index_settings_misplaced_fields(self):
@@ -354,11 +355,23 @@ class TestValidateIndexSettings(TestCase):
         for bad_set in bad_settings:
             try:
                 validate_index_settings(bad_set,
-                                        MAX_EF_CONSTRUCTION_VALUE=int(
-                                            os.environ.get("MARQO_EF_CONSTRUCTION_MAX_VALUE")),
-                                        MAX_NUMBER_OF_REPLICAS=int(
-                                            os.environ.get("MARQO_MAX_NUMBER_OF_REPLICAS")),
+                                        MAX_EF_CONSTRUCTION_VALUE=
+                                        self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                        MAX_NUMBER_OF_REPLICAS=
+                                        self.MARQO_MAX_NUMBER_OF_REPLICAS,
                                         )
                 raise AssertionError
             except InvalidSettingsArgError as e:
                 pass
+
+    def test_validate_index_settings_replicas_exceed_limit(self):
+        settings = self.get_good_index_settings()
+        settings['number_of_replicas'] = self.MARQO_MAX_NUMBER_OF_REPLICAS + 1
+        try:
+            validate_index_settings(settings,
+                                    MAX_EF_CONSTRUCTION_VALUE=self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                    MAX_NUMBER_OF_REPLICAS=self.MARQO_MAX_NUMBER_OF_REPLICAS,
+                                    )
+            raise AssertionError
+        except InvalidSettingsArgError as e:
+            pass
