@@ -240,5 +240,5 @@ def validate_index_settings(settings_to_validate: dict, MAX_NUMBER_OF_REPLICAS: 
     except jsonschema.ValidationError as e:
         raise InvalidSettingsArgError(
             f"Error validating index settings object. Reason: \n{str(e)}"
-            f"\nRead about the index settings object here: https://docs.marqo.ai/0.0.13/API-Reference/indexes/#body"
+            f"\nRead about the index settings object here: https://docs.marqo.ai/1.4.0/API-Reference/indexes/#body"
         )
