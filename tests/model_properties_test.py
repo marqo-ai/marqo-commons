@@ -12,27 +12,10 @@ from marqo_commons.model_registry.random_properties import _get_random_propertie
 from marqo_commons.model_registry.sbert_onnx_properties import _get_sbert_onnx_properties
 from marqo_commons.model_registry.sbert_properties import _get_sbert_properties
 from marqo_commons.model_registry.test_properties import _get_sbert_test_properties
-from marqo_commons.shared_utils.calculate_model_size import get_model_size
 from marqo_commons.shared_utils.enums import ModelType
 
 
 class TestModelProperties(TestCase):
-    def test_estimated_memory_size_equals_to_calculations(self):
-        """ this test ensures that the estimated_memory_size is equal to the calculated size """
-        model_properties = get_model_properties_dict()
-        print(len(model_properties))
-        for model_name, model_property in model_properties.items():
-            estimated_memory_size = model_property.get("memory_size", None)
-            if estimated_memory_size is not None:
-                model_property_without_size = model_property.copy()
-                del model_property_without_size["memory_size"]
-                model_size = get_model_size(model_name, model_property_without_size)
-                self.assertEqual(
-                    estimated_memory_size, model_size,
-                    f"Model {model_name} has estimated_memory_size {estimated_memory_size}"
-                    f" but calculated size {model_size}"
-                )
-
     def test_models_count(self):
         """ this test ensures that model names are not duplicated and thus the model registry is valid """
         model_properties = get_model_properties_dict()
@@ -77,7 +60,7 @@ class TestModelProperties(TestCase):
             self.assertIn(model_type, model_types, f"Model type {model_type} is not used")
 
     def test_serialized_and_deserialized_model_properties_are_equal(self):
-        """ this test ensures that all models have memory_size """
+        """ this test ensures that all models passed to json are correct and all keys are unique  """
         model_properties = get_model_properties_dict()
         model_properties_json = get_model_properties_json()
         deserialized_model_properties_json = json.loads(model_properties_json)

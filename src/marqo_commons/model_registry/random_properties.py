@@ -1,41 +1,40 @@
 from typing import Dict, List
 
 from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
+from marqo_commons.model_registry.utils import convert_model_properties_to_dict
 
 
 class RandomModelProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
+    default_memory_size: float = 0.1
     modality: List[Modality] = [Modality.text, Modality.image]
     type: ModelType = ModelType.random
     tokens: int
     notes: str = ""
 
+@convert_model_properties_to_dict
 def _get_random_properties() -> Dict:
     RANDOM_MODEL_PROPERTIES = {
-        "random": vars(RandomModelProperties(
+        "random": RandomModelProperties(
             name="random",
-            memory_size=0.1,
             dimensions=384,
             tokens=128,
-        )),
-        "random/large": vars(RandomModelProperties(
+        ),
+        "random/large": RandomModelProperties(
             name="random/large",
-            memory_size=0.1,
             dimensions=768,
             tokens=128,
-        )),
-        "random/small": vars(RandomModelProperties(
+        ),
+        "random/small": RandomModelProperties(
             name="random/small",
-            memory_size=0.1,
             dimensions=32,
             tokens=128,
-        )),
-        "random/medium": vars(RandomModelProperties(
+        ),
+        "random/medium": RandomModelProperties(
             name="random/medium",
-            memory_size=0.1,
             dimensions=128,
             tokens=128,
-        )),
+        ),
     }
 
     return RANDOM_MODEL_PROPERTIES
