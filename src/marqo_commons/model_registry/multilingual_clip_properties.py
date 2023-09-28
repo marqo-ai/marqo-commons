@@ -1,6 +1,7 @@
 from typing import Dict, List
 
 from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
+from marqo_commons.model_registry.utils import convert_model_properties_to_dict
 
 
 class MultilingualClipModelProperties(ModelProperties):
@@ -13,6 +14,7 @@ class MultilingualClipModelProperties(ModelProperties):
     notes: str = ""
 
 
+@convert_model_properties_to_dict
 def _get_multilingual_clip_properties() -> Dict:
     """This is moved here from the model registry to avoid a circular import"""
     # Models are from github repo
@@ -23,25 +25,25 @@ def _get_multilingual_clip_properties() -> Dict:
             visual_model="openai/ViT-L/14",
             textual_model="M-CLIP/XLM-Roberta-Large-Vit-L-14",
             dimensions=768,
-        ).to_dict(),
+        ),
         "multilingual-clip/XLM-R Large Vit-B/16+": MultilingualClipModelProperties(
             name="multilingual-clip/XLM-R Large Vit-B/16+",
             visual_model="open_clip/ViT-B-16-plus-240/laion400m_e32",
             textual_model="M-CLIP/XLM-Roberta-Large-Vit-B-16Plus",
             dimensions=640,
-        ).to_dict(),
+        ),
         "multilingual-clip/XLM-Roberta-Large-Vit-B-32": MultilingualClipModelProperties(
             name="multilingual-clip/XLM-Roberta-Large-Vit-B-32",
             visual_model="openai/ViT-B/32",
             textual_model="M-CLIP/XLM-Roberta-Large-Vit-B-32",
             dimensions=512,
-        ).to_dict(),
+        ),
         "multilingual-clip/LABSE-Vit-L-14": MultilingualClipModelProperties(
             name="multilingual-clip/LABSE-Vit-L-14",
             visual_model="openai/ViT-L/14",
             textual_model="M-CLIP/LABSE-Vit-L-14",
             dimensions=768,
-        ).to_dict(),
+        ),
     }
 
     return MULTILINGUAL_CLIP_PROPERTIES

@@ -1,6 +1,7 @@
 from typing import Dict, List
 
 from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
+from marqo_commons.model_registry.utils import convert_model_properties_to_dict
 
 
 class RandomModelProperties(ModelProperties):
@@ -11,28 +12,29 @@ class RandomModelProperties(ModelProperties):
     tokens: int
     notes: str = ""
 
+@convert_model_properties_to_dict
 def _get_random_properties() -> Dict:
     RANDOM_MODEL_PROPERTIES = {
         "random": RandomModelProperties(
             name="random",
             dimensions=384,
             tokens=128,
-        ).to_dict(),
+        ),
         "random/large": RandomModelProperties(
             name="random/large",
             dimensions=768,
             tokens=128,
-        ).to_dict(),
+        ),
         "random/small": RandomModelProperties(
             name="random/small",
             dimensions=32,
             tokens=128,
-        ).to_dict(),
+        ),
         "random/medium": RandomModelProperties(
             name="random/medium",
             dimensions=128,
             tokens=128,
-        ).to_dict(),
+        ),
     }
 
     return RANDOM_MODEL_PROPERTIES

@@ -1,6 +1,7 @@
 from typing import Dict, List
 
 from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
+from marqo_commons.model_registry.utils import convert_model_properties_to_dict
 
 
 class SbertOnnxProperties(ModelProperties):
@@ -11,58 +12,60 @@ class SbertOnnxProperties(ModelProperties):
     tokens: int
     notes: str = ""
 
+
+@convert_model_properties_to_dict
 def _get_sbert_onnx_properties() -> Dict:
     SBERT_ONNX_MODEL_PROPERTIES = {
         "onnx/all-MiniLM-L6-v1": SbertOnnxProperties(
             name="sentence-transformers/all-MiniLM-L6-v1",
             dimensions=384,
             tokens=128,
-        ).to_dict(),
+        ),
         "onnx/all-MiniLM-L6-v2": SbertOnnxProperties(
             name="sentence-transformers/all-MiniLM-L6-v2",
             dimensions=384,
             tokens=256,
-        ).to_dict(),
+        ),
         "onnx/all-mpnet-base-v1": SbertOnnxProperties(
             name="sentence-transformers/all-mpnet-base-v1",
             dimensions=768,
             tokens=128,
-        ).to_dict(),
+        ),
         "onnx/all-mpnet-base-v2": SbertOnnxProperties(
             name="sentence-transformers/all-mpnet-base-v2",
             dimensions=768,
             tokens=128,
-        ).to_dict(),
+        ),
         "onnx/all_datasets_v3_MiniLM-L12": SbertOnnxProperties(
             name="flax-sentence-embeddings/all_datasets_v3_MiniLM-L12",
             dimensions=384,
             tokens=128,
-        ).to_dict(),
+        ),
         "onnx/all_datasets_v3_MiniLM-L6": SbertOnnxProperties(
             name="flax-sentence-embeddings/all_datasets_v3_MiniLM-L6",
             dimensions=384,
             tokens=128,
-        ).to_dict(),
+        ),
         "onnx/all_datasets_v4_MiniLM-L12": SbertOnnxProperties(
             name="flax-sentence-embeddings/all_datasets_v4_MiniLM-L12",
             dimensions=384,
             tokens=128,
-        ).to_dict(),
+        ),
         "onnx/all_datasets_v4_MiniLM-L6": SbertOnnxProperties(
             name="flax-sentence-embeddings/all_datasets_v4_MiniLM-L6",
             dimensions=384,
             tokens=128,
-        ).to_dict(),
+        ),
         "onnx/all_datasets_v3_mpnet-base": SbertOnnxProperties(
             name="flax-sentence-embeddings/all_datasets_v3_mpnet-base",
             dimensions=768,
             tokens=128,
-        ).to_dict(),
+        ),
         "onnx/all_datasets_v4_mpnet-base": SbertOnnxProperties(
             name="flax-sentence-embeddings/all_datasets_v4_mpnet-base",
             dimensions=768,
             tokens=128,
-        ).to_dict(),
+        ),
     }
 
     return SBERT_ONNX_MODEL_PROPERTIES

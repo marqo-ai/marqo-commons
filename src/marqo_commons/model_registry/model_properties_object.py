@@ -15,13 +15,19 @@ class ModelProperties(BaseModel):
     modality: List[Modality] = Field(..., title="Model modality")
     vector_numeric_type: VectorNumericType = Field(..., title="Model vector numeric type")
 
-    def __init__(self, **data):
-        if "memory_size" not in data:
-            data["memory_size"] = self._get_model_size(data["name"])
-        super().__init__(**data)
+    def __init__(self, **kwargs):
+        if "memory_size" not in kwargs:
+            kwargs["memory_size"] = self._get_model_size(kwargs["name"])
+        super().__init__(**kwargs)
 
     @classmethod
     def _get_model_size(cls, name) -> float:
+        """
+        Calculates default model memory size in the following order:
+        1. Use default from `constants.MODEL_NAME_SIZE_MAPPING` if a name there is in the model name.
+        2. Use default from `default_memory_size` field in subclass (eg `ClipProperties`) if exists.
+        3. Use default from `default_memory_size` field in `ModelProperties`.
+        """
         name_info = name.lower().replace("/", "-")
         for name, size in constants.MODEL_NAME_SIZE_MAPPING.items():
             if name in name_info:
