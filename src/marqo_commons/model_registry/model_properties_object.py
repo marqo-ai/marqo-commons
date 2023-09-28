@@ -17,11 +17,11 @@ class ModelProperties(BaseModel):
 
     def __init__(self, **kwargs):
         if "memory_size" not in kwargs:
-            kwargs["memory_size"] = self._get_model_size(kwargs["name"])
+            kwargs["memory_size"] = self._get_default_model_size(kwargs["name"])
         super().__init__(**kwargs)
 
     @classmethod
-    def _get_model_size(cls, name) -> float:
+    def _get_default_model_size(cls, name) -> float:
         """
         Calculates default model memory size in the following order:
         1. Use default from `constants.MODEL_NAME_SIZE_MAPPING` if a name there is in the model name.
