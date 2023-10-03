@@ -89,3 +89,22 @@ class TestModelProperties(TestCase):
                         value, deserialized_model_properties_json[model_name][key],
                         f"Model {model_name} has value {value} for key {key} but deserialized model properties has value {deserialized_model_properties_json[model_name][key]}"
                     )
+
+    def test_old_model_registry_matches_new(self):
+        old_to_new_values_mappings = {
+            "model_size": "memory_size",
+            "note": "notes",
+        }
+        with open("data/old_serialized_model_registry_3599e36eb754696fef4510c317ef9515d220e3f8", "r") as f:
+            old_model_registry_dict = json.load(f)
+        new_model_registry_dict = get_model_properties_dict()
+        for model in old_model_registry_dict.keys():
+            for key in old_model_registry_dict[model].keys():
+                if key in old_to_new_values_mappings.keys():
+                    if key == "token":  # token key was removed from model registry
+                        continue
+                    self.assertEqual(
+                        old_model_registry_dict[model][key],
+                        new_model_registry_dict[model][old_to_new_values_mappings[key]],
+                        f"Model {model} has different value for key {key} in old and new model registry"
+                    )

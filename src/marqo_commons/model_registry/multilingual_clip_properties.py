@@ -1,3 +1,10 @@
+"""
+Multilingual CLIP model properties
+
+This file defines properties for Multilingual CLIP models.
+It is intended to be used in conjunction with the model registry
+and should not be used in isolation.
+"""
 from typing import Dict, List
 
 from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
@@ -6,7 +13,7 @@ from marqo_commons.model_registry.utils import convert_model_properties_to_dict
 
 class MultilingualClipModelProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
-    default_memory_size: float = 5
+    default_memory_size: float = 5.0
     modality: List[Modality] = [Modality.text, Modality.image]
     type: ModelType = ModelType.multilingual_clip
     visual_model: str
