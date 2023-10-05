@@ -42,3 +42,15 @@ class TestModelPropertiesSubclass(TestCase):
         dict_representation = model_with_special_type.to_dict()
         self.assertEqual(MODEL_NAME_SIZE_MAPPING["vit-l-14"], dict_representation["memory_size"])
 
+    def test_specified_size_is_returned(self):
+        model_with_special_type = ModelPropertiesTestObject(
+            name="ViT-L/14@336px",
+            dimensions=768,
+            tokens=128,
+            type=ModelType.clip,
+            modality=[Modality.image, Modality.text],
+            memory_size=1.234
+        )
+        dict_representation = model_with_special_type.to_dict()
+        self.assertEqual(1.234, dict_representation["memory_size"])
+

@@ -4,7 +4,7 @@ CLIP Model Properties
 This file defines properties for CLIP models. It is intended to be used in conjunction with the model registry
 and should not be used in isolation.
 """
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality
+from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
 from typing import Dict, List
 from marqo_commons.model_registry.utils import convert_model_properties_to_dict
 
@@ -13,7 +13,7 @@ class ClipProperties(ModelProperties):
     vector_numeric_type: VectorNumericType = VectorNumericType.float32
     modality: List[Modality] = [Modality.image, Modality.text]
     default_memory_size: float = 1.0
-    type: str = "clip"
+    type: ModelType = ModelType.clip
 
 
 @convert_model_properties_to_dict

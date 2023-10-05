@@ -1,3 +1,9 @@
+"""
+Test model properties
+
+This file contains test model properties. It is intended to be used in conjunction with the model registry
+and should not be used in isolation.
+"""
 from typing import Dict, List
 
 from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
