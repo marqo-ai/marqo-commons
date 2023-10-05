@@ -1,6 +1,6 @@
-from marqo_commons.model_registry.utils import convert_model_properties_to_dict
+from marqo_commons.model_properties.utils import convert_model_properties_to_dict
 from unittest import TestCase
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
+from marqo_commons.model_properties.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
 
 
 class TestUtils(TestCase):

@@ -10,7 +10,7 @@ class ModelProperties(BaseModel):
     dimensions: int = Field(..., title="Model dimensions")
     notes: str = Field(..., title="Model notes")
     type: ModelType = Field(..., title="Model types")
-    default_memory_size: float = 0.66
+    default_memory_size: float = Field(0.66, title="Model default memory size in GB")
     memory_size: float = Field(..., title="Model memory size")
     modality: List[Modality] = Field(..., title="Model modality")
     vector_numeric_type: VectorNumericType = Field(..., title="Model vector numeric type")

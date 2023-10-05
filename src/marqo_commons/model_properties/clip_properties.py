@@ -4,9 +4,10 @@ CLIP Model Properties
 This file defines properties for CLIP models. It is intended to be used in conjunction with the model registry
 and should not be used in isolation.
 """
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
+from marqo_commons.model_properties.model_properties_object import \
+    ModelProperties, VectorNumericType, Modality, ModelType
 from typing import Dict, List
-from marqo_commons.model_registry.utils import convert_model_properties_to_dict
+from marqo_commons.model_properties.utils import convert_model_properties_to_dict
 
 
 class ClipProperties(ModelProperties):
