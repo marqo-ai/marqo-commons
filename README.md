@@ -32,11 +32,9 @@ Marqo Commons is a Python package that provides a set of utilities and tools for
 
 ## Features
 
-- **Model Management**: Easily manage machine learning models used in the Marqo project. Supports popular models from PyTorch, Huggingface, OpenAI, and more.
+- **Model Registry**: Easily fetch model properties of the models used in the Marqo project. Supports popular models from PyTorch, Huggingface, OpenAI, and more. Model size in memory, represented by the key `memory_size` is always in gigabytes (GB).
 
 - **Settings Validation**: Validate project settings and configurations to ensure they meet Marqo's requirements and standards.
-
-- **Memory Estimation**: Calculate the estimated number of vectors that can fit in a specified memory size, helping with resource planning.
 
 ## Installation
 
