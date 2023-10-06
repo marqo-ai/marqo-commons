@@ -10,7 +10,7 @@ setup(
         "setuptools~=65.5.1",
     ],
     name="marqo-commons",
-    version="0.0.1",
+    version="1.0.0",
     author="marqo org",
     author_email="org@marqo.io",
     description="Commons for marqo projects",

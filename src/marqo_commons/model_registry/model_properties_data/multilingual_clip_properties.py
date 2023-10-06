@@ -7,7 +7,7 @@ and should not be used in isolation.
 """
 from typing import Dict, List
 
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
+from marqo_commons.model_registry.model_properties_data.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
 from marqo_commons.model_registry.utils import convert_model_properties_to_dict
 
 
