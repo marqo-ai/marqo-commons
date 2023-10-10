@@ -1,6 +1,6 @@
 from typing import List
 
-from marqo_commons.model_registry.model_properties_data.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
+from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
 from unittest import TestCase
 from marqo_commons.shared_utils.constants import MODEL_NAME_SIZE_MAPPING
 
