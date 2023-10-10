@@ -10,8 +10,11 @@ class ModelProperties(BaseModel):
     dimensions: int = Field(..., title="Model dimensions")
     notes: str = Field(..., title="Model notes")
     type: ModelType = Field(..., title="Model types")
+
+    # Model memory size is in gigabytes (GB).
     default_memory_size: float = 0.66
     memory_size: float = Field(..., title="Model memory size")
+
     modality: List[Modality] = Field(..., title="Model modality")
     vector_numeric_type: VectorNumericType = Field(..., title="Model vector numeric type")
 
@@ -27,6 +30,8 @@ class ModelProperties(BaseModel):
         1. Use default from `constants.MODEL_NAME_SIZE_MAPPING` if a name there is in the model name.
         2. Use default from `default_memory_size` field in subclass (eg `ClipProperties`) if exists.
         3. Use default from `default_memory_size` field in `ModelProperties`.
+
+        Model memory size is in gigabytes (GB).
         """
         name_info = name.lower().replace("/", "-")
         for name, size in constants.MODEL_NAME_SIZE_MAPPING.items():
