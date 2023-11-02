@@ -48,6 +48,15 @@ def validate_index_settings(settings_to_validate: dict, MAX_NUMBER_OF_REPLICAS: 
                         NsFields.model_properties: {
                             "type": "object",
                         },
+                        NsFields.search_model: {
+                            "type": "string",
+                            "examples": [
+                                "hf/all_datasets_v4_MiniLM-L6"
+                            ]
+                        },
+                        NsFields.search_model_properties: {
+                            "type": "object",
+                        },
                         NsFields.normalize_embeddings: {
                             "type": "boolean",
                             "examples": [

@@ -104,6 +104,24 @@ class TestValidateIndexSettings(TestCase):
                                                         MAX_NUMBER_OF_REPLICAS=
                                                         self.MARQO_MAX_NUMBER_OF_REPLICAS,
                                                         )
+        
+    def test_validate_index_settings_search_model(self):
+        good_settings = self.get_good_index_settings()
+        good_settings['index_defaults']['model_properties'] = {
+            "dimensions": 123,
+            "url": "https://random_site.com"
+        }
+        good_settings['index_defaults']['search_model'] = "ViT-B/32"
+        good_settings['index_defaults']['search_model_properties'] = {
+            "dimensions": 456,
+            "url": "https://random_site.com"
+        }
+        assert good_settings == validate_index_settings(good_settings,
+                                                        MAX_EF_CONSTRUCTION_VALUE=
+                                                        self.MARQO_EF_CONSTRUCTION_MAX_VALUE,
+                                                        MAX_NUMBER_OF_REPLICAS=
+                                                        self.MARQO_MAX_NUMBER_OF_REPLICAS,
+                                                        )
 
     def test_validate_index_settings_bad(self):
         bad_settings = [{
