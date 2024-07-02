@@ -18,6 +18,7 @@ class RandomModelProperties(ModelProperties):
     tokens: int
     notes: str = ""
 
+
 @convert_model_properties_to_dict
 def _get_random_properties() -> Dict:
     RANDOM_MODEL_PROPERTIES = {
@@ -25,22 +26,25 @@ def _get_random_properties() -> Dict:
             name="random",
             dimensions=384,
             tokens=128,
+            notes=""
         ),
         "random/large": RandomModelProperties(
             name="random/large",
             dimensions=768,
             tokens=128,
+            notes=""
         ),
         "random/small": RandomModelProperties(
             name="random/small",
             dimensions=32,
             tokens=128,
+            notes=""
         ),
         "random/medium": RandomModelProperties(
             name="random/medium",
             dimensions=128,
             tokens=128,
+            notes=""
         ),
     }
-
     return RANDOM_MODEL_PROPERTIES

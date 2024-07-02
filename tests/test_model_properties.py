@@ -5,6 +5,7 @@ from marqo_commons.model_registry.model_properties_data.clip_properties import _
 from marqo_commons.model_registry.model_properties_data.fp16_clip_properties import _get_fp16_clip_properties
 from marqo_commons.model_registry.model_properties_data.hf_properties import _get_hf_properties
 from marqo_commons.model_registry.model_properties_data.multilingual_clip_properties import _get_multilingual_clip_properties
+from marqo_commons.model_registry.model_properties_data.no_model import _get_no_model_properties
 from marqo_commons.model_registry.model_properties_data.onnx_clip_properties import _get_onnx_clip_properties
 from marqo_commons.model_registry.model_properties_data.open_clip_properties import _get_open_clip_properties
 from marqo_commons.model_registry.model_properties_data.random_properties import _get_random_properties
@@ -36,6 +37,7 @@ class TestModelProperties(TestCase):
         total_count_from_all_model_properties += len(_get_onnx_clip_properties())
         total_count_from_all_model_properties += len(_get_multilingual_clip_properties())
         total_count_from_all_model_properties += len(_get_fp16_clip_properties())
+        total_count_from_all_model_properties += len(_get_no_model_properties())
         self.assertEqual(
             total_count_from_all_model_properties, total_count_from_model_registry,
             "Number of models in get_model_properties_dict is not equal to total "

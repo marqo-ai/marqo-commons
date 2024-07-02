@@ -17,6 +17,7 @@ class ModelType(str, Enum):
     sbert_onnx = "sbert_onnx"
     sbert = "sbert"
     test = "test"
+    no_model = "no_model"
 
 
 class VectorNumericType(str, Enum):
