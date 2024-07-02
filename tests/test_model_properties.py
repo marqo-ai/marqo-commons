@@ -98,7 +98,7 @@ class TestModelProperties(TestCase):
             "model_size": "memory_size",
             "note": "notes",
         }
-        with open("tests/data/old_serialized_model_registry_3599e36eb754696fef4510c317ef9515d220e3f8", "r") as f:
+        with open("tests/data/old_serialized_model_registry_0df0edd2400a1b5b40598ee109f72a6ea261441b.json", "r") as f:
             old_model_registry_dict = json.load(f)
         new_model_registry_json = get_model_properties_json()
         new_model_registry_dict = json.loads(new_model_registry_json)
