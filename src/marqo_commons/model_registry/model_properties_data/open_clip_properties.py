@@ -221,7 +221,7 @@ def _get_open_clip_properties() -> Dict:
             dimensions=1024,
             notes="open_clip models",
             type=ModelType.open_clip,
-            pretrained="laion2b_s32b_b79k"
+            pretrained="laion2b_s32b_b79k",
         ),
         "open_clip/ViT-g-14/laion2b_s12b_b42k": OpenClipModelProperties(
             name="open_clip/ViT-g-14/laion2b_s12b_b42k",
@@ -300,7 +300,7 @@ def _get_open_clip_properties() -> Dict:
             dimensions=768,
             notes="open_clip models",
             type=ModelType.open_clip,
-            pretrained="laion2b_s26b_b102k_augreg"
+            pretrained="laion2b_s26b_b102k_augreg",
         ),
         "open_clip/convnext_large_d_320/laion2b_s29b_b131k_ft": OpenClipModelProperties(
             name="open_clip/convnext_large_d_320/laion2b_s29b_b131k_ft",
@@ -336,7 +336,7 @@ def _get_open_clip_properties() -> Dict:
             name="open_clip/coca_ViT-B-32/laion2b_s13b_b90k",
             dimensions=512,
             notes="open_clip models",
-            pretrained="laion2b_s13b_b90k"
+            pretrained="laion2b_s13b_b90k",
         ),
         "open_clip/coca_ViT-B-32/mscoco_finetuned_laion2b_s13b_b90k": OpenClipModelProperties(
             name="open_clip/coca_ViT-B-32/mscoco_finetuned_laion2b_s13b_b90k",

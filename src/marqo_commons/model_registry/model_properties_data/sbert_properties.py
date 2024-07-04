@@ -78,4 +78,5 @@ def _get_sbert_properties() -> Dict:
             tokens=128,
         ),
     }
+
     return SBERT_MODEL_PROPERTIES

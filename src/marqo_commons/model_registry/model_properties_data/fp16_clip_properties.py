@@ -22,17 +22,17 @@ def _get_fp16_clip_properties() -> Dict:
         "fp16/ViT-L/14": FP16ClipModelProperties(
             name="fp16/ViT-L/14",
             dimensions=768,
-            notes="The faster version (fp16, load from `cuda`) of openai clip model"
+            notes="The faster version (fp16, load from `cuda`) of openai clip model",
         ),
         'fp16/ViT-B/32': FP16ClipModelProperties(
             name="fp16/ViT-B/32",
             dimensions=512,
-            notes="The faster version (fp16, load from `cuda`) of openai clip model"
+            notes="The faster version (fp16, load from `cuda`) of openai clip model",
         ),
         'fp16/ViT-B/16': FP16ClipModelProperties(
             name="fp16/ViT-B/16",
             dimensions=512,
-            notes="The faster version (fp16, load from `cuda`) of openai clip model"
+            notes="The faster version (fp16, load from `cuda`) of openai clip model",
         ),
     }
 
