@@ -16,6 +16,8 @@ class SbertTestModelProperties(ModelProperties):
     type: ModelType = ModelType.test
     tokens: int
     notes: str = ""
+    text_query_prefix = ""
+    text_chunk_prefix = ""
 
 
 @convert_model_properties_to_dict
@@ -31,5 +33,13 @@ def _get_sbert_test_properties() -> Dict:
             dimensions=16,
             tokens=128,
         ),
+        "test_prefix": SbertTestModelProperties(
+            name="sentence-transformers/all-MiniLM-L6-v1",
+            dimensions=16,
+            tokens=128,
+            type=ModelType.test,
+            text_query_prefix="test query: ",
+            text_chunk_prefix="test passage: ",
+        )
     }
     return TEST_MODEL_PROPERTIES

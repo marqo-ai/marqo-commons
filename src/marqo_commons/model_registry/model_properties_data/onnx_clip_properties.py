@@ -19,7 +19,7 @@ class OnnxClipModelProperties(ModelProperties):
     visual_file: str
     textual_file: str
     resolution: int
-    pretrained: str = None
+    pretrained: Optional[str] = None
     image_mean: Optional[Tuple[float, ...]] = None
     image_std: Optional[Tuple[float, ...]] = None
 
@@ -68,7 +68,7 @@ def _get_onnx_clip_properties() -> Dict:
         "onnx32/open_clip/ViT-L-14/laion400m_e32": OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-L-14/laion400m_e32",
             dimensions=768,
-            notes="the onnx float32 version of open_clip ViT-L-14/lainon400m_e32",
+            notes="the onnx float32 version of open_clip ViT-L-14/laion400m_e32",
             repo_id="Marqo/onnx-open_clip-ViT-L-14",
             visual_file="onnx32-open_clip-ViT-L-14-laion400m_e32-visual.onnx",
             textual_file="onnx32-open_clip-ViT-L-14-laion400m_e32-textual.onnx",
@@ -78,7 +78,7 @@ def _get_onnx_clip_properties() -> Dict:
         "onnx16/open_clip/ViT-L-14/laion400m_e32": OnnxClipModelProperties(
             name="onnx16/open_clip/ViT-L-14/laion400m_e32",
             dimensions=768,
-            notes="the onnx float16 version of open_clip ViT-L-14/lainon400m_e32",
+            notes="the onnx float16 version of open_clip ViT-L-14/laion400m_e32",
             repo_id="Marqo/onnx-open_clip-ViT-L-14",
             visual_file="onnx16-open_clip-ViT-L-14-laion400m_e32-visual.onnx",
             textual_file="onnx16-open_clip-ViT-L-14-laion400m_e32-textual.onnx",
@@ -248,16 +248,6 @@ def _get_onnx_clip_properties() -> Dict:
             textual_file="onnx16-open_clip-ViT-B-32-quickgelu-laion400m_e31-textual.onnx",
             resolution=224,
             pretrained="laion400m_e31",
-                ),
-        "onnx16/open_clip/ViT-B-32-quickgelu/laion400m_e32": OnnxClipModelProperties(
-            name="onnx16/open_clip/ViT-B-32-quickgelu/laion400m_e32",
-            dimensions=512,
-            notes="the onnx float16 version of open_clip ViT-B-32-quickgelu/laion400m_e32",
-            repo_id="Marqo/onnx-open_clip-ViT-B-32-quickgelu",
-            visual_file="onnx16-open_clip-ViT-B-32-quickgelu-laion400m_e32-visual.onnx",
-            textual_file="onnx16-open_clip-ViT-B-32-quickgelu-laion400m_e32-textual.onnx",
-            resolution=224,
-            pretrained="laion400m_e32",
         ),
         "onnx32/open_clip/ViT-B-32-quickgelu/laion400m_e32": OnnxClipModelProperties(
             name="onnx32/open_clip/ViT-B-32-quickgelu/laion400m_e32",
@@ -266,6 +256,16 @@ def _get_onnx_clip_properties() -> Dict:
             repo_id="Marqo/onnx-open_clip-ViT-B-32-quickgelu",
             visual_file="onnx32-open_clip-ViT-B-32-quickgelu-laion400m_e32-visual.onnx",
             textual_file="onnx32-open_clip-ViT-B-32-quickgelu-laion400m_e32-textual.onnx",
+            resolution=224,
+            pretrained="laion400m_e32"
+        ),
+        "onnx16/open_clip/ViT-B-32-quickgelu/laion400m_e32": OnnxClipModelProperties(
+            name="onnx16/open_clip/ViT-B-32-quickgelu/laion400m_e32",
+            dimensions=512,
+            notes="the onnx float16 version of open_clip ViT-B-32-quickgelu/laion400m_e32",
+            repo_id="Marqo/onnx-open_clip-ViT-B-32-quickgelu",
+            visual_file="onnx16-open_clip-ViT-B-32-quickgelu-laion400m_e32-visual.onnx",
+            textual_file="onnx16-open_clip-ViT-B-32-quickgelu-laion400m_e32-textual.onnx",
             resolution=224,
             pretrained="laion400m_e32",
         ),
