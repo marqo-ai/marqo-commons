@@ -1,3 +1,5 @@
+import os
+
 from setuptools import setup, find_packages
 
 with open("README.md", "r", encoding="utf8") as fh:
@@ -5,12 +7,11 @@ with open("README.md", "r", encoding="utf8") as fh:
 
 setup(
     install_requires=[
-        "pydantic==1.9.1",
-        "jsonschema==4.17.1",
-        "setuptools~=65.5.1",
+        "pydantic~=2.7.4",
+        "jsonschema>=4.17.1",
     ],
     name="marqo-commons",
-    version="1.0.0",
+    version="2.0.0",
     author="marqo org",
     author_email="org@marqo.io",
     description="Commons for marqo projects",
