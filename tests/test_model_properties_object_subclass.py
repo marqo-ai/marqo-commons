@@ -1,6 +1,7 @@
-from typing import List
+from typing import List, Dict
 
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
+from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, \
+    ModelType, T
 from unittest import TestCase
 from marqo_commons.shared_utils.constants import MODEL_NAME_SIZE_MAPPING
 
@@ -13,6 +14,11 @@ class ModelPropertiesTestObject(ModelProperties):
     notes: str = ""
     default_random_field: str = "default_random_field"
     default_memory_size: float = 1.11
+
+    @classmethod
+    def list_model_properties(cls) -> Dict[str, T]:
+        pass
+
 
 
 class TestModelPropertiesSubclass(TestCase):
@@ -53,4 +59,3 @@ class TestModelPropertiesSubclass(TestCase):
         )
         dict_representation = model_with_special_type.to_dict()
         self.assertEqual(1.234, dict_representation["memory_size"])
-
