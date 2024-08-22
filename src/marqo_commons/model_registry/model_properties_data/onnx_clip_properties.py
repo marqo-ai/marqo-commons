@@ -25,7 +25,7 @@ class OnnxClipModelProperties(ModelProperties):
     image_std: Optional[Tuple[float, ...]] = None
 
     @classmethod
-    def list_model_properties(cls) -> Dict[str, T]:
+    def get_all_model_properties_objects(cls) -> Dict[str, T]:
         return {
             "onnx32/openai/ViT-L/14": OnnxClipModelProperties(
                 name="onnx32/openai/ViT-L/14",
@@ -674,4 +674,4 @@ class OnnxClipModelProperties(ModelProperties):
 
 @convert_model_properties_to_dict
 def _get_onnx_clip_properties() -> Dict:
-    return OnnxClipModelProperties.list_model_properties()
+    return OnnxClipModelProperties.get_all_model_properties_objects()

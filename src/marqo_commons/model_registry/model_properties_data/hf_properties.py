@@ -22,7 +22,7 @@ class HFModelProperties(ModelProperties):
     text_chunk_prefix: str = ""
 
     @classmethod
-    def list_model_properties(cls) -> Dict[str, T]:
+    def get_all_model_properties_objects(cls) -> Dict[str, T]:
         return {
             "hf/all-MiniLM-L6-v1": HFModelProperties(
                 name="sentence-transformers/all-MiniLM-L6-v1",
@@ -248,4 +248,4 @@ class HFModelProperties(ModelProperties):
 
 @convert_model_properties_to_dict
 def _get_hf_properties() -> Dict:
-    return HFModelProperties.list_model_properties()
+    return HFModelProperties.get_all_model_properties_objects()

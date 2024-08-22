@@ -17,7 +17,7 @@ class FP16ClipModelProperties(ModelProperties):
     type: ModelType = ModelType.fp16_clip
 
     @classmethod
-    def list_model_properties(cls) -> Dict[str, T]:
+    def get_all_model_properties_objects(cls) -> Dict[str, T]:
         return {
             "fp16/ViT-L/14": FP16ClipModelProperties(
                 name="fp16/ViT-L/14",
@@ -38,4 +38,4 @@ class FP16ClipModelProperties(ModelProperties):
 
 @convert_model_properties_to_dict
 def _get_fp16_clip_properties() -> Dict:
-    return FP16ClipModelProperties.list_model_properties()
+    return FP16ClipModelProperties.get_all_model_properties_objects()

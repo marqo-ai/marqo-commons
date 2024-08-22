@@ -21,7 +21,7 @@ class OpenClipModelProperties(ModelProperties):
     notes: str = ""
 
     @classmethod
-    def list_model_properties(cls) -> Dict[str, T]:
+    def get_all_model_properties_objects(cls) -> Dict[str, T]:
         # use this link to find all the model_configs
         # https://github.com/mlfoundations/open_clip/tree/main/src/open_clip/model_configs
         return {
@@ -460,4 +460,4 @@ class OpenClipModelProperties(ModelProperties):
 
 @convert_model_properties_to_dict
 def _get_open_clip_properties() -> Dict:
-    return OpenClipModelProperties.list_model_properties()
+    return OpenClipModelProperties.get_all_model_properties_objects()

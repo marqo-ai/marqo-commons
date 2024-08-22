@@ -20,7 +20,7 @@ class NoModelProperties(ModelProperties):
     notes: str = ""
 
     @classmethod
-    def list_model_properties(cls) -> Dict[str, T]:
+    def get_all_model_properties_objects(cls) -> Dict[str, T]:
         return {
             'no_model': NoModelProperties(
                 name='no_model',
@@ -33,4 +33,4 @@ class NoModelProperties(ModelProperties):
 
 @convert_model_properties_to_dict
 def _get_no_model_properties() -> Dict:
-    return NoModelProperties.list_model_properties()
+    return NoModelProperties.get_all_model_properties_objects()

@@ -21,7 +21,7 @@ class SbertTestModelProperties(ModelProperties):
     text_chunk_prefix = ""
 
     @classmethod
-    def list_model_properties(cls) -> Dict[str, T]:
+    def get_all_model_properties_objects(cls) -> Dict[str, T]:
         return {
             "sentence-transformers/test": SbertTestModelProperties(
                 name="sentence-transformers/all-MiniLM-L6-v1",
@@ -45,4 +45,4 @@ class SbertTestModelProperties(ModelProperties):
 
 @convert_model_properties_to_dict
 def _get_sbert_test_properties() -> Dict:
-    return SbertTestModelProperties.list_model_properties()
+    return SbertTestModelProperties.get_all_model_properties_objects()

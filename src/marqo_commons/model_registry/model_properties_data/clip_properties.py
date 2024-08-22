@@ -18,7 +18,7 @@ class ClipProperties(ModelProperties):
 
 
     @classmethod
-    def list_model_properties(cls) -> Dict[str, T]:
+    def get_all_model_properties_objects(cls) -> Dict[str, T]:
         return {
             'RN50': ClipProperties(
                 name="RN50",
@@ -69,4 +69,4 @@ class ClipProperties(ModelProperties):
 
 @convert_model_properties_to_dict
 def _get_clip_properties() -> Dict:
-    return ClipProperties.list_model_properties()
+    return ClipProperties.get_all_model_properties_objects()

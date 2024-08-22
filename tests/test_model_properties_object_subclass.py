@@ -16,7 +16,7 @@ class ModelPropertiesTestObject(ModelProperties):
     default_memory_size: float = 1.11
 
     @classmethod
-    def list_model_properties(cls) -> Dict[str, T]:
+    def get_all_model_properties_objects(cls) -> Dict[str, T]:
         pass
 
 

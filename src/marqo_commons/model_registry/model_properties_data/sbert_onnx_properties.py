@@ -20,7 +20,7 @@ class SbertOnnxProperties(ModelProperties):
     notes: str = ""
 
     @classmethod
-    def list_model_properties(cls) -> Dict[str, T]:
+    def get_all_model_properties_objects(cls) -> Dict[str, T]:
         return {
             "onnx/all-MiniLM-L6-v1": SbertOnnxProperties(
                 name="sentence-transformers/all-MiniLM-L6-v1",
@@ -77,4 +77,4 @@ class SbertOnnxProperties(ModelProperties):
 
 @convert_model_properties_to_dict
 def _get_sbert_onnx_properties() -> Dict:
-    return SbertOnnxProperties.list_model_properties()
+    return SbertOnnxProperties.get_all_model_properties_objects()

@@ -20,7 +20,7 @@ class RandomModelProperties(ModelProperties):
     notes: str = ""
 
     @classmethod
-    def list_model_properties(cls) -> Dict[str, T]:
+    def get_all_model_properties_objects(cls) -> Dict[str, T]:
         return  {
             "random": RandomModelProperties(
                 name="random",
@@ -46,4 +46,4 @@ class RandomModelProperties(ModelProperties):
 
 @convert_model_properties_to_dict
 def _get_random_properties() -> Dict:
-    return RandomModelProperties.list_model_properties()
+    return RandomModelProperties.get_all_model_properties_objects()

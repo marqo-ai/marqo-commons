@@ -22,7 +22,7 @@ class MultilingualClipModelProperties(ModelProperties):
     notes: str = ""
 
     @classmethod
-    def list_model_properties(cls) -> Dict[str, T]:
+    def get_all_model_properties_objects(cls) -> Dict[str, T]:
         """This is moved here from the model registry to avoid a circular import"""
         # Models are from github repo
         # https://github.com/FreddeFrallan/Multilingual-CLIP
@@ -56,4 +56,4 @@ class MultilingualClipModelProperties(ModelProperties):
 
 @convert_model_properties_to_dict
 def _get_multilingual_clip_properties() -> Dict:
-    return MultilingualClipModelProperties.list_model_properties()
+    return MultilingualClipModelProperties.get_all_model_properties_objects()

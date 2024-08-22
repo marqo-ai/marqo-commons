@@ -7,7 +7,7 @@ class TestUtils(TestCase):
     def test_convert_model_properties_to_dict(self):
         class TestProperties(ModelProperties):
             @classmethod
-            def list_model_properties(cls):
+            def get_all_model_properties_objects(cls):
                 return {
                     "sentence-transformers/test": TestProperties(
                         name="sentence-transformers/all-MiniLM-L6-v1",
@@ -31,7 +31,7 @@ class TestUtils(TestCase):
 
         @convert_model_properties_to_dict
         def _get_test_properties():
-            return TestProperties.list_model_properties()
+            return TestProperties.get_all_model_properties_objects()
 
         properties = _get_test_properties()
         self.assertEqual(type(properties["sentence-transformers/test"]), dict)

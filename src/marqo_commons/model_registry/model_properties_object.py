@@ -27,7 +27,11 @@ class ModelProperties(BaseModel, ABC):
 
     @classmethod
     @abstractmethod
-    def list_model_properties(cls) -> Dict[str, T]:
+    def get_all_model_properties_objects(cls) -> Dict[str, T]:
+        """
+        Get all model properties associated with the model type class. This returns a dictionary
+        of typed objects that are subclasses of ModelProperties keyed by their model names.
+        """
         pass
 
     @classmethod
@@ -60,4 +64,3 @@ class ModelProperties(BaseModel, ABC):
         for key in properties_to_remove:
             del dict_of_model_properties[key]
         return dict_of_model_properties
-
