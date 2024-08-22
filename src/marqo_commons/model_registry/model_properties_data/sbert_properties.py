@@ -6,7 +6,8 @@ and should not be used in isolation.
 """
 from typing import Dict, List
 
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
+from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, \
+    ModelType, T
 from marqo_commons.model_registry.utils import convert_model_properties_to_dict
 
 
@@ -18,70 +19,71 @@ class SbertProperties(ModelProperties):
     tokens: int
     notes: str = ""
 
+    @classmethod
+    def get_all_model_properties_objects(cls) -> Dict[str, T]:
+        return {
+            "sentence-transformers/all-MiniLM-L6-v1": SbertProperties(
+                name="sentence-transformers/all-MiniLM-L6-v1",
+                dimensions=384,
+                tokens=128,
+            ),
+            "sentence-transformers/all-MiniLM-L6-v2": SbertProperties(
+                name="sentence-transformers/all-MiniLM-L6-v2",
+                dimensions=384,
+                tokens=256,
+            ),
+            "sentence-transformers/all-mpnet-base-v1": SbertProperties(
+                name="sentence-transformers/all-mpnet-base-v1",
+                dimensions=768,
+                tokens=128,
+            ),
+            "sentence-transformers/all-mpnet-base-v2": SbertProperties(
+                name="sentence-transformers/all-mpnet-base-v2",
+                dimensions=768,
+                tokens=128,
+            ),
+            "sentence-transformers/stsb-xlm-r-multilingual": SbertProperties(
+                name="sentence-transformers/stsb-xlm-r-multilingual",
+                dimensions=768,
+                tokens=128,
+            ),
+            "flax-sentence-embeddings/all_datasets_v3_MiniLM-L12": SbertProperties(
+                name="flax-sentence-embeddings/all_datasets_v3_MiniLM-L12",
+                dimensions=384,
+                tokens=128,
+            ),
+            "flax-sentence-embeddings/all_datasets_v3_MiniLM-L6": SbertProperties(
+                name="flax-sentence-embeddings/all_datasets_v3_MiniLM-L6",
+                dimensions=384,
+                tokens=128,
+            ),
+            "flax-sentence-embeddings/all_datasets_v4_MiniLM-L12": SbertProperties(
+                name="flax-sentence-embeddings/all_datasets_v4_MiniLM-L12",
+                dimensions=384,
+                tokens=128,
+            ),
+            "flax-sentence-embeddings/all_datasets_v4_MiniLM-L6": SbertProperties(
+                name="flax-sentence-embeddings/all_datasets_v4_MiniLM-L6",
+                dimensions=384,
+                tokens=128,
+            ),
+            "flax-sentence-embeddings/all_datasets_v3_mpnet-base": SbertProperties(
+                name="flax-sentence-embeddings/all_datasets_v3_mpnet-base",
+                dimensions=768,
+                tokens=128,
+            ),
+            "flax-sentence-embeddings/all_datasets_v4_mpnet-base": SbertProperties(
+                name="flax-sentence-embeddings/all_datasets_v4_mpnet-base",
+                dimensions=768,
+                tokens=128,
+            ),
+            "sentence-transformers/all-MiniLM-L12-v2": SbertProperties(
+                name="sentence-transformers/all-MiniLM-L12-v2",
+                dimensions=384,
+                tokens=256,
+            ),
+        }
 
 @convert_model_properties_to_dict
 def _get_sbert_properties() -> Dict:
-    SBERT_MODEL_PROPERTIES = {
-        "sentence-transformers/all-MiniLM-L6-v1": SbertProperties(
-            name="sentence-transformers/all-MiniLM-L6-v1",
-            dimensions=384,
-            tokens=128,
-        ),
-        "sentence-transformers/all-MiniLM-L6-v2": SbertProperties(
-            name="sentence-transformers/all-MiniLM-L6-v2",
-            dimensions=384,
-            tokens=256,
-        ),
-        "sentence-transformers/all-mpnet-base-v1": SbertProperties(
-            name="sentence-transformers/all-mpnet-base-v1",
-            dimensions=768,
-            tokens=128,
-        ),
-        "sentence-transformers/all-mpnet-base-v2": SbertProperties(
-            name="sentence-transformers/all-mpnet-base-v2",
-            dimensions=768,
-            tokens=128,
-        ),
-        "sentence-transformers/stsb-xlm-r-multilingual": SbertProperties(
-            name="sentence-transformers/stsb-xlm-r-multilingual",
-            dimensions=768,
-            tokens=128,
-        ),
-        "flax-sentence-embeddings/all_datasets_v3_MiniLM-L12": SbertProperties(
-            name="flax-sentence-embeddings/all_datasets_v3_MiniLM-L12",
-            dimensions=384,
-            tokens=128,
-        ),
-        "flax-sentence-embeddings/all_datasets_v3_MiniLM-L6": SbertProperties(
-            name="flax-sentence-embeddings/all_datasets_v3_MiniLM-L6",
-            dimensions=384,
-            tokens=128,
-        ),
-        "flax-sentence-embeddings/all_datasets_v4_MiniLM-L12": SbertProperties(
-            name="flax-sentence-embeddings/all_datasets_v4_MiniLM-L12",
-            dimensions=384,
-            tokens=128,
-        ),
-        "flax-sentence-embeddings/all_datasets_v4_MiniLM-L6": SbertProperties(
-            name="flax-sentence-embeddings/all_datasets_v4_MiniLM-L6",
-            dimensions=384,
-            tokens=128,
-        ),
-        "flax-sentence-embeddings/all_datasets_v3_mpnet-base": SbertProperties(
-            name="flax-sentence-embeddings/all_datasets_v3_mpnet-base",
-            dimensions=768,
-            tokens=128,
-        ),
-        "flax-sentence-embeddings/all_datasets_v4_mpnet-base": SbertProperties(
-            name="flax-sentence-embeddings/all_datasets_v4_mpnet-base",
-            dimensions=768,
-            tokens=128,
-        ),
-        "sentence-transformers/all-MiniLM-L12-v2": SbertProperties(
-            name="sentence-transformers/all-MiniLM-L12-v2",
-            dimensions=384,
-            tokens=256,
-        ),
-    }
-
-    return SBERT_MODEL_PROPERTIES
+    return SbertProperties.get_all_model_properties_objects()

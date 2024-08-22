@@ -6,7 +6,8 @@ and should not be used in isolation.
 """
 from typing import Dict, List
 
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
+from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, \
+    ModelType, T
 from marqo_commons.model_registry.utils import convert_model_properties_to_dict
 
 
@@ -19,27 +20,29 @@ class SbertTestModelProperties(ModelProperties):
     text_query_prefix = ""
     text_chunk_prefix = ""
 
+    @classmethod
+    def get_all_model_properties_objects(cls) -> Dict[str, T]:
+        return {
+            "sentence-transformers/test": SbertTestModelProperties(
+                name="sentence-transformers/all-MiniLM-L6-v1",
+                dimensions=16,
+                tokens=128,
+            ),
+            "test": SbertTestModelProperties(
+                name="sentence-transformers/all-MiniLM-L6-v1",
+                dimensions=16,
+                tokens=128,
+            ),
+            "test_prefix": SbertTestModelProperties(
+                name="sentence-transformers/all-MiniLM-L6-v1",
+                dimensions=16,
+                tokens=128,
+                type=ModelType.test,
+                text_query_prefix="test query: ",
+                text_chunk_prefix="test passage: ",
+            )
+        }
 
 @convert_model_properties_to_dict
 def _get_sbert_test_properties() -> Dict:
-    TEST_MODEL_PROPERTIES = {
-        "sentence-transformers/test": SbertTestModelProperties(
-            name="sentence-transformers/all-MiniLM-L6-v1",
-            dimensions=16,
-            tokens=128,
-        ),
-        "test": SbertTestModelProperties(
-            name="sentence-transformers/all-MiniLM-L6-v1",
-            dimensions=16,
-            tokens=128,
-        ),
-        "test_prefix": SbertTestModelProperties(
-            name="sentence-transformers/all-MiniLM-L6-v1",
-            dimensions=16,
-            tokens=128,
-            type=ModelType.test,
-            text_query_prefix="test query: ",
-            text_chunk_prefix="test passage: ",
-        )
-    }
-    return TEST_MODEL_PROPERTIES
+    return SbertTestModelProperties.get_all_model_properties_objects()

@@ -6,7 +6,8 @@ and should not be used in isolation.
 """
 from typing import Dict, List
 
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, ModelType
+from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, \
+    ModelType, T
 from marqo_commons.model_registry.utils import convert_model_properties_to_dict
 
 
@@ -18,16 +19,18 @@ class NoModelProperties(ModelProperties):
     tokens: int
     notes: str = ""
 
+    @classmethod
+    def get_all_model_properties_objects(cls) -> Dict[str, T]:
+        return {
+            'no_model': NoModelProperties(
+                name='no_model',
+                dimensions=0,
+                notes="This is a special model no_model that requires users to provide 'dimensions'",
+                type=ModelType.no_model,
+                tokens=0  # Assuming default value for tokens
+            )
+        }
 
 @convert_model_properties_to_dict
 def _get_no_model_properties() -> Dict:
-    NO_MODEL_PROPERTIES = {
-        'no_model': NoModelProperties(
-            name='no_model',
-            dimensions=0,
-            notes="This is a special model no_model that requires users to provide 'dimensions'",
-            type=ModelType.no_model,
-            tokens=0  # Assuming default value for tokens
-        )
-    }
-    return NO_MODEL_PROPERTIES
+    return NoModelProperties.get_all_model_properties_objects()

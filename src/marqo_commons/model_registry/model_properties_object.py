@@ -1,11 +1,13 @@
-from typing import List
+from abc import ABC, abstractmethod
+from typing import List, TypeVar, Dict
 
 from pydantic import BaseModel, Field
 from marqo_commons.shared_utils.enums import Modality, VectorNumericType, ModelType
 from marqo_commons.shared_utils import constants
 
+T = TypeVar('T', bound='ModelProperties')
 
-class ModelProperties(BaseModel):
+class ModelProperties(BaseModel, ABC):
     name: str = Field(..., title="Model name")
     dimensions: int = Field(..., title="Model dimensions")
     notes: str = Field(..., title="Model notes")
@@ -22,6 +24,15 @@ class ModelProperties(BaseModel):
         if "memory_size" not in kwargs:
             kwargs["memory_size"] = self._get_default_model_size(kwargs["name"])
         super().__init__(**kwargs)
+
+    @classmethod
+    @abstractmethod
+    def get_all_model_properties_objects(cls) -> Dict[str, T]:
+        """
+        Get all model properties associated with the model type class. This returns a dictionary
+        of typed objects that are subclasses of ModelProperties keyed by their model names.
+        """
+        pass
 
     @classmethod
     def _get_default_model_size(cls, name) -> float:
@@ -53,4 +64,3 @@ class ModelProperties(BaseModel):
         for key in properties_to_remove:
             del dict_of_model_properties[key]
         return dict_of_model_properties
-
