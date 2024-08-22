@@ -229,20 +229,17 @@ def _get_hf_properties() -> Dict:
             dimensions=1024,
             tokens=512,
         ),
-        "sentence-transformers/all-MiniLM-L12-v2": HFModelProperties(
-            name="sentence-transformers/all-MiniLM-L12-v2",
-            dimensions=384,
-            tokens=256,
-        ),
         "hf/snowflake-arctic-embed-m-v1.5": HFModelProperties(
             name="Snowflake/snowflake-arctic-embed-m-v1.5",
             dimensions=768,
             tokens=512,
+            text_query_prefix="Represent this sentence for searching relevant passages: ",
         ),
         "hf/snowflake-arctic-embed-m": HFModelProperties(
             name="Snowflake/snowflake-arctic-embed-m",
             dimensions=768,
             tokens=512,
+            text_query_prefix="Represent this sentence for searching relevant passages: ",
         ),
     }
     return HF_MODEL_PROPERTIES

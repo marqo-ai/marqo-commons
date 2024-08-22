@@ -77,6 +77,11 @@ def _get_sbert_properties() -> Dict:
             dimensions=768,
             tokens=128,
         ),
+        "sentence-transformers/all-MiniLM-L12-v2": SbertProperties(
+            name="sentence-transformers/all-MiniLM-L12-v2",
+            dimensions=384,
+            tokens=256,
+        ),
     }
 
     return SBERT_MODEL_PROPERTIES
