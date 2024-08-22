@@ -175,8 +175,7 @@ def _get_hf_properties() -> Dict:
             dimensions=1024,
             tokens=512,
             notes="",
-            text_query_prefix="query: ",
-            text_chunk_prefix="passage: ",
+            text_query_prefix="Instruct: Given a web search query, retrieve relevant passages that answer the query\nQuery:",
         ),
         "hf/GIST-large-Embedding-v0": HFModelProperties(
             name="avsolatorio/GIST-large-Embedding-v0",
@@ -187,40 +186,62 @@ def _get_hf_properties() -> Dict:
             name="BAAI/bge-small-en-v1.5",
             dimensions=384,
             tokens=512,
+            text_query_prefix="Represent this sentence for searching relevant passages: ",
         ),
         "hf/bge-base-en-v1.5": HFModelProperties(
             name="BAAI/bge-base-en-v1.5",
             dimensions=768,
             tokens=512,
+            text_query_prefix="Represent this sentence for searching relevant passages: ",
         ),
         "hf/bge-large-en-v1.5": HFModelProperties(
             name="BAAI/bge-large-en-v1.5",
             dimensions=1024,
             tokens=512,
+            text_query_prefix="Represent this sentence for searching relevant passages: ",
         ),
         "hf/bge-small-zh-v1.5": HFModelProperties(
             name="BAAI/bge-small-zh-v1.5",
             dimensions=512,
             tokens=512,
+            text_query_prefix="为这个句子生成表示以用于检索相关文章：",
         ),
         "hf/bge-base-zh-v1.5": HFModelProperties(
             name="BAAI/bge-base-zh-v1.5",
             dimensions=768,
             tokens=512,
+            text_query_prefix="为这个句子生成表示以用于检索相关文章：",
         ),
         "hf/bge-large-zh-v1.5": HFModelProperties(
             name="BAAI/bge-large-zh-v1.5",
             dimensions=1024,
             tokens=512,
+            text_query_prefix="为这个句子生成表示以用于检索相关文章：",
         ),
         "hf/snowflake-arctic-embed-l": HFModelProperties(
             name="Snowflake/snowflake-arctic-embed-l",
             dimensions=1024,
             tokens=512,
+            text_query_prefix="Represent this sentence for searching relevant passages: ",
         ),
         "hf/ember-v1": HFModelProperties(
             name="llmrails/ember-v1",
             dimensions=1024,
+            tokens=512,
+        ),
+        "sentence-transformers/all-MiniLM-L12-v2": HFModelProperties(
+            name="sentence-transformers/all-MiniLM-L12-v2",
+            dimensions=384,
+            tokens=256,
+        ),
+        "hf/snowflake-arctic-embed-m-v1.5": HFModelProperties(
+            name="Snowflake/snowflake-arctic-embed-m-v1.5",
+            dimensions=768,
+            tokens=512,
+        ),
+        "hf/snowflake-arctic-embed-m": HFModelProperties(
+            name="Snowflake/snowflake-arctic-embed-m",
+            dimensions=768,
             tokens=512,
         ),
     }
