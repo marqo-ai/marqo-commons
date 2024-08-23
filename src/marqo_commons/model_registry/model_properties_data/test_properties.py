@@ -17,8 +17,8 @@ class SbertTestModelProperties(ModelProperties):
     type: ModelType = ModelType.test
     tokens: int
     notes: str = ""
-    text_query_prefix = ""
-    text_chunk_prefix = ""
+    text_query_prefix: str = ""
+    text_chunk_prefix: str = ""
 
     @classmethod
     def get_all_model_properties_objects(cls) -> Dict[str, T]:
