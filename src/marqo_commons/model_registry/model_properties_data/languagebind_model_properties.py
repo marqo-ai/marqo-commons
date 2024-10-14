@@ -28,32 +28,32 @@ class LanguagebindModelProperties(ModelProperties):
             'LanguageBind/Video_V1.5_FT_Audio_FT_Image': LanguagebindModelProperties(
                 name="LanguageBind/Video_V1.5_FT_Audio_FT_Image",
                 dimensions=768,
-                modaliy=[Modality.video, Modality.audio, Modality.text, Modality.image],
+                modality=[Modality.video, Modality.audio, Modality.text, Modality.image],
             ),
             'LanguageBind/Video_V1.5_FT_Audio_FT': LanguagebindModelProperties(
                 name="LanguageBind/Video_V1.5_FT_Audio_FT",
                 dimensions=768,
-                modaliy=[Modality.video, Modality.audio, Modality.text],
+                modality=[Modality.video, Modality.audio, Modality.text],
             ),
             'LanguageBind/Video_V1.5_FT_Image': LanguagebindModelProperties(
                 name="LanguageBind/Video_V1.5_FT_Image",
                 dimensions=768,
-                modaliy=[Modality.video, Modality.text, Modality.image],
+                modality=[Modality.video, Modality.text, Modality.image],
             ),
             'LanguageBind/Audio_FT_Image': LanguagebindModelProperties(
                 name="LanguageBind/Audio_FT_Image",
                 dimensions=768,
-                modaliy=[Modality.audio, Modality.text, Modality.image],
+                modality=[Modality.audio, Modality.text, Modality.image],
             ),
             'LanguageBind/Audio_FT': LanguagebindModelProperties(
                 name="LanguageBind/Audio_FT",
                 dimensions=768,
-                modaliy=[Modality.audio, Modality.text],
+                modality=[Modality.audio, Modality.text],
             ),
             'LanguageBind/Video_V1.5_FT': LanguagebindModelProperties(
                 name="LanguageBind/Video_V1.5_FT",
                 dimensions=768,
-                modaliy=[Modality.video, Modality.text],
+                modality=[Modality.video, Modality.text],
             ),
         }
 
