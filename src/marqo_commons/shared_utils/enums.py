@@ -4,6 +4,8 @@ from enum import Enum
 class Modality(str, Enum):
     image = "image"
     text = "text"
+    audio = "audio"
+    video = "video"
 
 
 class ModelType(str, Enum):
@@ -18,6 +20,7 @@ class ModelType(str, Enum):
     sbert = "sbert"
     test = "test"
     no_model = "no_model"
+    languagebind = "languagebind"
 
 
 class VectorNumericType(str, Enum):
