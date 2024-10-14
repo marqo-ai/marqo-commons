@@ -4,7 +4,7 @@ OpenCLIP model properties
 This file contains properties for OpenCLIP models. It is intended to be used in conjunction with the model registry
 and should not be used in isolation.
 """
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 from marqo_commons.model_registry.model_properties_data.onnx_clip_properties import OnnxClipModelProperties
 from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, \
@@ -17,7 +17,7 @@ class OpenClipModelProperties(ModelProperties):
     default_memory_size: float = 1.0
     modality: List[Modality] = [Modality.text, Modality.image]
     type: ModelType = ModelType.open_clip
-    pretrained: str
+    pretrained: Optional[str]
     notes: str = ""
 
     @classmethod
@@ -455,36 +455,36 @@ class OpenClipModelProperties(ModelProperties):
                 notes="open_clip model: ViT-B-32-256/datacomp_s34b_b86k",
                 pretrained="datacomp_s34b_b86k"
             ),
-        "Marqo/marqo-fashionCLIP": OpenClipModelProperties(
-            name = "hf-hub:Marqo/marqo-fashionCLIP",
-            dimensions = 512,
-            note = "Marqo's fashionCLIP model",
-        ),
-        "Marqo/marqo-fashionSigLIP": OpenClipModelProperties(
-            name = "hf-hub:Marqo/marqo-fashionSigLIP",
-            dimensions = 768,
-            note = "Marqo's fashionSigLIP model",
-        ),
-        "visheratin/nllb-clip-base-siglip": OpenClipModelProperties(
-            name="hf-hub:visheratin/nllb-clip-base-siglip",
-            dimensions=768,
-            note="A multilingual CLIP model",
-        ),
-        "visheratin/nllb-siglip-mrl-base": OpenClipModelProperties(
-            name="hf-hub:visheratin/nllb-siglip-mrl-base",
-            dimensions=768,
-            note="A multilingual CLIP model",
-        ),
-        "visheratin/nllb-clip-large-siglip": OpenClipModelProperties(
-            name="hf-hub:visheratin/nllb-clip-large-siglip",
-            dimensions=1152,
-            note="A multilingual CLIP model",
-        ),
-        "visheratin/nllb-siglip-mrl-large": OpenClipModelProperties(
-            name="hf-hub:visheratin/nllb-siglip-mrl-large",
-            dimensions=1152,
-            note="A multilingual CLIP model",
-        )
+            "Marqo/marqo-fashionCLIP": OpenClipModelProperties(
+                name = "hf-hub:Marqo/marqo-fashionCLIP",
+                dimensions = 512,
+                note = "Marqo's fashionCLIP model",
+            ),
+            "Marqo/marqo-fashionSigLIP": OpenClipModelProperties(
+                name = "hf-hub:Marqo/marqo-fashionSigLIP",
+                dimensions = 768,
+                note = "Marqo's fashionSigLIP model",
+            ),
+            "visheratin/nllb-clip-base-siglip": OpenClipModelProperties(
+                name="hf-hub:visheratin/nllb-clip-base-siglip",
+                dimensions=768,
+                note="A multilingual CLIP model",
+            ),
+            "visheratin/nllb-siglip-mrl-base": OpenClipModelProperties(
+                name="hf-hub:visheratin/nllb-siglip-mrl-base",
+                dimensions=768,
+                note="A multilingual CLIP model",
+            ),
+            "visheratin/nllb-clip-large-siglip": OpenClipModelProperties(
+                name="hf-hub:visheratin/nllb-clip-large-siglip",
+                dimensions=1152,
+                note="A multilingual CLIP model",
+            ),
+            "visheratin/nllb-siglip-mrl-large": OpenClipModelProperties(
+                name="hf-hub:visheratin/nllb-siglip-mrl-large",
+                dimensions=1152,
+                note="A multilingual CLIP model",
+            )
     }
 
 
