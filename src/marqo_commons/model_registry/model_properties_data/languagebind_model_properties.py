@@ -28,32 +28,32 @@ class LanguagebindModelProperties(ModelProperties):
             'LanguageBind/Video_V1.5_FT_Audio_FT_Image': LanguagebindModelProperties(
                 name="LanguageBind/Video_V1.5_FT_Audio_FT_Image",
                 dimensions=768,
-                modalities=[Modality.video, Modality.audio, Modality.text, Modality.image],
+                modaliy=[Modality.video, Modality.audio, Modality.text, Modality.image],
             ),
             'LanguageBind/Video_V1.5_FT_Audio_FT': LanguagebindModelProperties(
                 name="LanguageBind/Video_V1.5_FT_Audio_FT",
                 dimensions=768,
-                modalities=[Modality.video, Modality.audio, Modality.text],
+                modaliy=[Modality.video, Modality.audio, Modality.text],
             ),
             'LanguageBind/Video_V1.5_FT_Image': LanguagebindModelProperties(
                 name="LanguageBind/Video_V1.5_FT_Image",
                 dimensions=768,
-                modalities=[Modality.video, Modality.text, Modality.image],
+                modaliy=[Modality.video, Modality.text, Modality.image],
             ),
             'LanguageBind/Audio_FT_Image': LanguagebindModelProperties(
                 name="LanguageBind/Audio_FT_Image",
                 dimensions=768,
-                modalities=[Modality.audio, Modality.text, Modality.image],
+                modaliy=[Modality.audio, Modality.text, Modality.image],
             ),
             'LanguageBind/Audio_FT': LanguagebindModelProperties(
                 name="LanguageBind/Audio_FT",
                 dimensions=768,
-                modalities=[Modality.audio, Modality.text],
+                modaliy=[Modality.audio, Modality.text],
             ),
             'LanguageBind/Video_V1.5_FT': LanguagebindModelProperties(
                 name="LanguageBind/Video_V1.5_FT",
                 dimensions=768,
-                modalities=[Modality.video, Modality.text],
+                modaliy=[Modality.video, Modality.text],
             ),
         }
 
