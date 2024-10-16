@@ -12,6 +12,7 @@ from marqo_commons.model_registry.model_properties_data.random_properties import
 from marqo_commons.model_registry.model_properties_data.sbert_onnx_properties import _get_sbert_onnx_properties
 from marqo_commons.model_registry.model_properties_data.sbert_properties import _get_sbert_properties
 from marqo_commons.model_registry.model_properties_data.test_properties import _get_sbert_test_properties
+from marqo_commons.model_registry.model_properties_data.languagebind_model_properties import _get_languagebind_properties
 
 from marqo_commons.model_registry.model_registry import get_model_properties_dict, get_model_properties_json
 from marqo_commons.shared_utils.enums import ModelType
@@ -38,6 +39,7 @@ class TestModelProperties(TestCase):
         total_count_from_all_model_properties += len(_get_multilingual_clip_properties())
         total_count_from_all_model_properties += len(_get_fp16_clip_properties())
         total_count_from_all_model_properties += len(_get_no_model_properties())
+        total_count_from_all_model_properties += len(_get_languagebind_properties())
         self.assertEqual(
             total_count_from_all_model_properties, total_count_from_model_registry,
             "Number of models in get_model_properties_dict is not equal to total "

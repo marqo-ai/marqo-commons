@@ -12,6 +12,7 @@ from marqo_commons.model_registry.model_properties_data.fp16_clip_properties imp
 from marqo_commons.model_registry.model_properties_data.onnx_clip_properties import _get_onnx_clip_properties
 from marqo_commons.model_registry.model_properties_data.random_properties import _get_random_properties
 from marqo_commons.model_registry.model_properties_data.no_model import _get_no_model_properties
+from marqo_commons.model_registry.model_properties_data.languagebind_model_properties import _get_languagebind_properties
 
 
 # we need to keep track of the embed dim and model load functions/classes
@@ -33,6 +34,7 @@ def get_model_properties_dict() -> Dict:
     multilingual_clip_model_properties = _get_multilingual_clip_properties()
     fp16_clip_model_properties = _get_fp16_clip_properties()
     no_model_properties = _get_no_model_properties()
+    languagebind_model_properties = _get_languagebind_properties()
 
     # combine the above dicts
     model_properties = dict(clip_model_properties.items())
@@ -46,6 +48,7 @@ def get_model_properties_dict() -> Dict:
     model_properties.update(multilingual_clip_model_properties)
     model_properties.update(fp16_clip_model_properties)
     model_properties.update(no_model_properties)
+    model_properties.update(languagebind_model_properties)
 
     return model_properties
 
