@@ -1,19 +1,19 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 with open("README.md", "r", encoding="utf8") as fh:
     long_description = fh.read()
 
 setup(
     install_requires=[
-        "pydantic==1.9.1",
+        "pydantic>=2.0.0",
         "jsonschema==4.17.1",
         "setuptools~=65.5.1",
     ],
     name="marqo-commons",
-    version="1.0.0",
-    author="marqo org",
-    author_email="org@marqo.io",
-    description="Commons for marqo projects",
+    version="1.0.1",
+    author="Marqo",
+    author_email="support@marqo.ai",
+    description="Commons for Marqo projects",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=find_packages(where="src", exclude=("tests*",)),
