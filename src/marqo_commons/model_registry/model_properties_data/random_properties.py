@@ -4,10 +4,15 @@ Random model properties
 This file contains random model properties. It is intended to be used in conjunction with the model registry
 and should not be used in isolation.
 """
+
 from typing import Dict, List
 
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, \
-    ModelType, T
+from marqo_commons.model_registry.model_properties_object import (
+    Modality,
+    ModelProperties,
+    ModelType,
+    VectorNumericType,
+)
 from marqo_commons.model_registry.utils import convert_model_properties_to_dict
 
 
@@ -20,8 +25,8 @@ class RandomModelProperties(ModelProperties):
     notes: str = ""
 
     @classmethod
-    def get_all_model_properties_objects(cls) -> Dict[str, T]:
-        return  {
+    def get_all_model_properties_objects(cls) -> Dict[str, "RandomModelProperties"]:
+        return {
             "random": RandomModelProperties(
                 name="random",
                 dimensions=384,
@@ -43,6 +48,7 @@ class RandomModelProperties(ModelProperties):
                 tokens=128,
             ),
         }
+
 
 @convert_model_properties_to_dict
 def _get_random_properties() -> Dict:

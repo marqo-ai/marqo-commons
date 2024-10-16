@@ -4,10 +4,15 @@ Onnx Clip Model Properties
 This file defines properties for Onnx Clip models. It is intended to be used in conjunction with the model registry
 and should not be used in isolation.
 """
-from typing import Dict, Optional, List, Tuple
 
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, \
-    ModelType, T
+from typing import Dict, List, Optional, Tuple
+
+from marqo_commons.model_registry.model_properties_object import (
+    Modality,
+    ModelProperties,
+    ModelType,
+    VectorNumericType,
+)
 from marqo_commons.model_registry.utils import convert_model_properties_to_dict
 
 
@@ -25,7 +30,7 @@ class OnnxClipModelProperties(ModelProperties):
     image_std: Optional[Tuple[float, ...]] = None
 
     @classmethod
-    def get_all_model_properties_objects(cls) -> Dict[str, T]:
+    def get_all_model_properties_objects(cls) -> Dict[str, "OnnxClipModelProperties"]:
         return {
             "onnx32/openai/ViT-L/14": OnnxClipModelProperties(
                 name="onnx32/openai/ViT-L/14",
@@ -257,7 +262,7 @@ class OnnxClipModelProperties(ModelProperties):
                 visual_file="onnx32-open_clip-ViT-B-32-quickgelu-laion400m_e32-visual.onnx",
                 textual_file="onnx32-open_clip-ViT-B-32-quickgelu-laion400m_e32-textual.onnx",
                 resolution=224,
-                pretrained="laion400m_e32"
+                pretrained="laion400m_e32",
             ),
             "onnx16/open_clip/ViT-B-32-quickgelu/laion400m_e32": OnnxClipModelProperties(
                 name="onnx16/open_clip/ViT-B-32-quickgelu/laion400m_e32",
@@ -671,6 +676,7 @@ class OnnxClipModelProperties(ModelProperties):
             ),
         }
         pass
+
 
 @convert_model_properties_to_dict
 def _get_onnx_clip_properties() -> Dict:

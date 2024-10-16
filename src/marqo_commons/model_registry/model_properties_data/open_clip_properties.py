@@ -4,11 +4,15 @@ OpenCLIP model properties
 This file contains properties for OpenCLIP models. It is intended to be used in conjunction with the model registry
 and should not be used in isolation.
 """
+
 from typing import Dict, List, Optional
 
-from marqo_commons.model_registry.model_properties_data.onnx_clip_properties import OnnxClipModelProperties
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, \
-    ModelType, T
+from marqo_commons.model_registry.model_properties_object import (
+    Modality,
+    ModelProperties,
+    ModelType,
+    VectorNumericType,
+)
 from marqo_commons.model_registry.utils import convert_model_properties_to_dict
 
 
@@ -17,11 +21,11 @@ class OpenClipModelProperties(ModelProperties):
     default_memory_size: float = 1.0
     modality: List[Modality] = [Modality.text, Modality.image]
     type: ModelType = ModelType.open_clip
-    pretrained: Optional[str]
+    pretrained: Optional[str] = None
     notes: str = ""
 
     @classmethod
-    def get_all_model_properties_objects(cls) -> Dict[str, T]:
+    def get_all_model_properties_objects(cls) -> Dict[str, "OpenClipModelProperties"]:
         # use this link to find all the model_configs
         # https://github.com/mlfoundations/open_clip/tree/main/src/open_clip/model_configs
         return {
@@ -319,19 +323,19 @@ class OpenClipModelProperties(ModelProperties):
                 name="open_clip/convnext_xxlarge/laion2b_s34b_b82k_augreg",
                 dimensions=1024,
                 notes="open_clip models",
-                pretrained="laion2b_s34b_b82k_augreg"
+                pretrained="laion2b_s34b_b82k_augreg",
             ),
             "open_clip/convnext_xxlarge/laion2b_s34b_b82k_augreg_rewind": OpenClipModelProperties(
                 name="open_clip/convnext_xxlarge/laion2b_s34b_b82k_augreg_rewind",
                 dimensions=1024,
                 notes="open_clip models",
-                pretrained="laion2b_s34b_b82k_augreg_rewind"
+                pretrained="laion2b_s34b_b82k_augreg_rewind",
             ),
             "open_clip/convnext_xxlarge/laion2b_s34b_b82k_augreg_soup": OpenClipModelProperties(
                 name="open_clip/convnext_xxlarge/laion2b_s34b_b82k_augreg_soup",
                 dimensions=1024,
                 notes="open_clip models",
-                pretrained="laion2b_s34b_b82k_augreg_soup"
+                pretrained="laion2b_s34b_b82k_augreg_soup",
             ),
             "open_clip/coca_ViT-B-32/laion2b_s13b_b90k": OpenClipModelProperties(
                 name="open_clip/coca_ViT-B-32/laion2b_s13b_b90k",
@@ -355,7 +359,7 @@ class OpenClipModelProperties(ModelProperties):
                 name="open_clip/coca_ViT-L-14/mscoco_finetuned_laion2b_s13b_b90k",
                 dimensions=768,
                 notes="open_clip models",
-                pretrained="mscoco_finetuned_laion2b_s13b_b90k"
+                pretrained="mscoco_finetuned_laion2b_s13b_b90k",
             ),
             # New models as of Marqo 2.7.0
             # Added for: Open CLIP 2.24.0
@@ -363,107 +367,107 @@ class OpenClipModelProperties(ModelProperties):
                 name="open_clip/ViT-SO400M-14-SigLIP-384/webli",
                 dimensions=1152,
                 notes="open_clip model: ViT-SO400M-14-SigLIP-384/webli",
-                pretrained="webli"
+                pretrained="webli",
             ),
             "open_clip/ViT-H-14-378-quickgelu/dfn5b": OpenClipModelProperties(
                 name="open_clip/ViT-H-14-378-quickgelu/dfn5b",
                 dimensions=1024,
                 notes="open_clip model: ViT-H-14-378-quickgelu/dfn5b",
-                pretrained="dfn5b"
+                pretrained="dfn5b",
             ),
             "open_clip/ViT-L-16-SigLIP-384/webli": OpenClipModelProperties(
                 name="open_clip/ViT-L-16-SigLIP-384/webli",
                 dimensions=1024,
                 notes="open_clip model: ViT-L-16-SigLIP-384/webli",
-                pretrained="webli"
+                pretrained="webli",
             ),
             "open_clip/ViT-H-14-quickgelu/dfn5b": OpenClipModelProperties(
                 name="open_clip/ViT-H-14-quickgelu/dfn5b",
                 dimensions=1024,
                 notes="open_clip model: ViT-H-14-quickgelu/dfn5b",
-                pretrained="dfn5b"
+                pretrained="dfn5b",
             ),
             "open_clip/ViT-L-16-SigLIP-256/webli": OpenClipModelProperties(
                 name="open_clip/ViT-L-16-SigLIP-256/webli",
                 dimensions=1024,
                 notes="open_clip model: ViT-L-16-SigLIP-256/webli",
-                pretrained="webli"
+                pretrained="webli",
             ),
             "open_clip/ViT-B-16-SigLIP-512/webli": OpenClipModelProperties(
                 name="open_clip/ViT-B-16-SigLIP-512/webli",
                 dimensions=768,
                 notes="open_clip model: ViT-B-16-SigLIP-512/webli",
-                pretrained="webli"
+                pretrained="webli",
             ),
             "open_clip/ViT-B-16-SigLIP-384/webli": OpenClipModelProperties(
                 name="open_clip/ViT-B-16-SigLIP-384/webli",
                 dimensions=768,
                 notes="open_clip model: ViT-B-16-SigLIP-384/webli",
-                pretrained="webli"
+                pretrained="webli",
             ),
             "open_clip/ViT-B-16-SigLIP-256/webli": OpenClipModelProperties(
                 name="open_clip/ViT-B-16-SigLIP-256/webli",
                 dimensions=768,
                 notes="open_clip model: ViT-B-16-SigLIP-256/webli",
-                pretrained="webli"
+                pretrained="webli",
             ),
             "open_clip/ViT-B-16-SigLIP/webli": OpenClipModelProperties(
                 name="open_clip/ViT-B-16-SigLIP/webli",
                 dimensions=768,
                 notes="open_clip model: ViT-B-16-SigLIP/webli",
-                pretrained="webli"
+                pretrained="webli",
             ),
             "open_clip/ViT-L-14-quickgelu/dfn2b": OpenClipModelProperties(
                 name="open_clip/ViT-L-14-quickgelu/dfn2b",
                 dimensions=768,
                 notes="open_clip model: ViT-L-14-quickgelu/dfn2b",
-                pretrained="dfn2b"
+                pretrained="dfn2b",
             ),
             "open_clip/EVA02-L-14-336/merged2b_s6b_b61k": OpenClipModelProperties(
                 name="open_clip/EVA02-L-14-336/merged2b_s6b_b61k",
                 dimensions=768,
                 notes="open_clip model: EVA02-L-14-336/merged2b_s6b_b61k",
-                pretrained="merged2b_s6b_b61k"
+                pretrained="merged2b_s6b_b61k",
             ),
             "open_clip/EVA02-B-16/merged2b_s8b_b131k": OpenClipModelProperties(
                 name="open_clip/EVA02-B-16/merged2b_s8b_b131k",
                 dimensions=512,
                 notes="open_clip model: EVA02-B-16/merged2b_s8b_b131k",
-                pretrained="merged2b_s8b_b131k"
+                pretrained="merged2b_s8b_b131k",
             ),
             "open_clip/EVA02-L-14/merged2b_s4b_b131k": OpenClipModelProperties(
                 name="open_clip/EVA02-L-14/merged2b_s4b_b131k",
                 dimensions=768,
                 notes="open_clip model: EVA02-L-14/merged2b_s4b_b131k",
-                pretrained="merged2b_s4b_b131k"
+                pretrained="merged2b_s4b_b131k",
             ),
             "open_clip/ViT-B-16-quickgelu/metaclip_fullcc": OpenClipModelProperties(
                 name="open_clip/ViT-B-16-quickgelu/metaclip_fullcc",
                 dimensions=512,
                 notes="open_clip model: ViT-B-16-quickgelu/metaclip_fullcc",
-                pretrained="metaclip_fullcc"
+                pretrained="metaclip_fullcc",
             ),
             "open_clip/ViT-L-14-CLIPA-336/datacomp1b": OpenClipModelProperties(
                 name="open_clip/ViT-L-14-CLIPA-336/datacomp1b",
                 dimensions=768,
                 notes="open_clip model: ViT-L-14-CLIPA-336/datacomp1b",
-                pretrained="datacomp1b"
+                pretrained="datacomp1b",
             ),
             "open_clip/ViT-B-32-256/datacomp_s34b_b86k": OpenClipModelProperties(
                 name="open_clip/ViT-B-32-256/datacomp_s34b_b86k",
                 dimensions=512,
                 notes="open_clip model: ViT-B-32-256/datacomp_s34b_b86k",
-                pretrained="datacomp_s34b_b86k"
+                pretrained="datacomp_s34b_b86k",
             ),
             "Marqo/marqo-fashionCLIP": OpenClipModelProperties(
-                name = "hf-hub:Marqo/marqo-fashionCLIP",
-                dimensions = 512,
-                note = "Marqo's fashionCLIP model",
+                name="hf-hub:Marqo/marqo-fashionCLIP",
+                dimensions=512,
+                note="Marqo's fashionCLIP model",
             ),
             "Marqo/marqo-fashionSigLIP": OpenClipModelProperties(
-                name = "hf-hub:Marqo/marqo-fashionSigLIP",
-                dimensions = 768,
-                note = "Marqo's fashionSigLIP model",
+                name="hf-hub:Marqo/marqo-fashionSigLIP",
+                dimensions=768,
+                note="Marqo's fashionSigLIP model",
             ),
             "visheratin/nllb-clip-base-siglip": OpenClipModelProperties(
                 name="hf-hub:visheratin/nllb-clip-base-siglip",
@@ -484,8 +488,8 @@ class OpenClipModelProperties(ModelProperties):
                 name="hf-hub:visheratin/nllb-siglip-mrl-large",
                 dimensions=1152,
                 note="A multilingual CLIP model",
-            )
-    }
+            ),
+        }
 
 
 @convert_model_properties_to_dict

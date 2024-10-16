@@ -4,10 +4,15 @@ HF Model Properties
 This file defines properties for HF models. It is intended to be used in conjunction with the model registry
 and should not be used in isolation.
 """
+
 from typing import Dict, List
 
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, \
-    ModelType, T
+from marqo_commons.model_registry.model_properties_object import (
+    Modality,
+    ModelProperties,
+    ModelType,
+    VectorNumericType,
+)
 from marqo_commons.model_registry.utils import convert_model_properties_to_dict
 
 
@@ -22,7 +27,7 @@ class HFModelProperties(ModelProperties):
     text_chunk_prefix: str = ""
 
     @classmethod
-    def get_all_model_properties_objects(cls) -> Dict[str, T]:
+    def get_all_model_properties_objects(cls) -> Dict[str, "HFModelProperties"]:
         return {
             "hf/all-MiniLM-L6-v1": HFModelProperties(
                 name="sentence-transformers/all-MiniLM-L6-v1",
@@ -243,7 +248,6 @@ class HFModelProperties(ModelProperties):
             ),
         }
         pass
-
 
 
 @convert_model_properties_to_dict
