@@ -1,11 +1,13 @@
 from abc import ABC, abstractmethod
-from typing import List, TypeVar, Dict
+from typing import Dict, List, TypeVar
 
 from pydantic import BaseModel, Field
-from marqo_commons.shared_utils.enums import Modality, VectorNumericType, ModelType
-from marqo_commons.shared_utils import constants
 
-T = TypeVar('T', bound='ModelProperties')
+from marqo_commons.shared_utils import constants
+from marqo_commons.shared_utils.enums import Modality, ModelType, VectorNumericType
+
+T = TypeVar("T", bound="ModelProperties")
+
 
 class ModelProperties(BaseModel, ABC):
     name: str = Field(..., title="Model name")
@@ -18,7 +20,9 @@ class ModelProperties(BaseModel, ABC):
     memory_size: float = Field(..., title="Model memory size")
 
     modality: List[Modality] = Field(..., title="Model modality")
-    vector_numeric_type: VectorNumericType = Field(..., title="Model vector numeric type")
+    vector_numeric_type: VectorNumericType = Field(
+        ..., title="Model vector numeric type"
+    )
 
     def __init__(self, **kwargs):
         if "memory_size" not in kwargs:
@@ -51,7 +55,7 @@ class ModelProperties(BaseModel, ABC):
         return cls.__fields__["default_memory_size"].default
 
     def to_dict(self):
-        """ Function returns a dict of the model properties without the default values.
+        """Function returns a dict of the model properties without the default values.
         Handles deletion of default values by collecting the keys of the dict that start with "default".
         And then deleting them from the dict.
         Implemented this way to avoid dict size changes during iteration.

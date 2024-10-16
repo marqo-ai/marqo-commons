@@ -4,10 +4,15 @@ SBERT ONNX Model Properties
 This file contains properties for SBERT ONNX models. It is intended to be used in conjunction with the model registry
 and should not be used in isolation.
 """
+
 from typing import Dict, List
 
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, \
-    ModelType, T
+from marqo_commons.model_registry.model_properties_object import (
+    Modality,
+    ModelProperties,
+    ModelType,
+    VectorNumericType,
+)
 from marqo_commons.model_registry.utils import convert_model_properties_to_dict
 
 
@@ -20,7 +25,7 @@ class SbertOnnxProperties(ModelProperties):
     notes: str = ""
 
     @classmethod
-    def get_all_model_properties_objects(cls) -> Dict[str, T]:
+    def get_all_model_properties_objects(cls) -> Dict[str, "SbertOnnxProperties"]:
         return {
             "onnx/all-MiniLM-L6-v1": SbertOnnxProperties(
                 name="sentence-transformers/all-MiniLM-L6-v1",

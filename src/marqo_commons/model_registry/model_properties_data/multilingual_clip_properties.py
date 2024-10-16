@@ -5,10 +5,15 @@ This file defines properties for Multilingual CLIP models.
 It is intended to be used in conjunction with the model registry
 and should not be used in isolation.
 """
+
 from typing import Dict, List
 
-from marqo_commons.model_registry.model_properties_object import ModelProperties, VectorNumericType, Modality, \
-    ModelType, T
+from marqo_commons.model_registry.model_properties_object import (
+    Modality,
+    ModelProperties,
+    ModelType,
+    VectorNumericType,
+)
 from marqo_commons.model_registry.utils import convert_model_properties_to_dict
 
 
@@ -22,7 +27,9 @@ class MultilingualClipModelProperties(ModelProperties):
     notes: str = ""
 
     @classmethod
-    def get_all_model_properties_objects(cls) -> Dict[str, T]:
+    def get_all_model_properties_objects(
+        cls,
+    ) -> Dict[str, "MultilingualClipModelProperties"]:
         """This is moved here from the model registry to avoid a circular import"""
         # Models are from github repo
         # https://github.com/FreddeFrallan/Multilingual-CLIP
