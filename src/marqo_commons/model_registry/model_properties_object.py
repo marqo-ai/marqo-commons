@@ -52,7 +52,7 @@ class ModelProperties(BaseModel, ABC):
         for name, size in constants.MODEL_NAME_SIZE_MAPPING.items():
             if name in name_info:
                 return size
-        return cls.__fields__["default_memory_size"].default
+        return cls.model_fields["default_memory_size"].default
 
     def to_dict(self):
         """Function returns a dict of the model properties without the default values.
