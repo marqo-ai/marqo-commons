@@ -23,6 +23,7 @@ class ModelProperties(BaseModel, ABC):
     vector_numeric_type: VectorNumericType = Field(
         ..., title="Model vector numeric type"
     )
+    trustRemoteCode: bool = Field(default=False, title="Trust remote code")
 
     def __init__(self, **kwargs):
         if "memory_size" not in kwargs:

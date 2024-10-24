@@ -21,6 +21,7 @@ class ModelType(str, Enum):
     test = "test"
     no_model = "no_model"
     languagebind = "languagebind"
+    hf_stella = "hf_stella"
 
 
 class VectorNumericType(str, Enum):
