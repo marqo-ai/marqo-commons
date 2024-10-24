@@ -25,6 +25,7 @@ class HFModelProperties(ModelProperties):
     notes: str = ""
     text_query_prefix: str = ""
     text_chunk_prefix: str = ""
+    trustRemoteCode: bool = False
 
     @classmethod
     def get_all_model_properties_objects(cls) -> Dict[str, "HFModelProperties"]:
@@ -245,6 +246,13 @@ class HFModelProperties(ModelProperties):
                 dimensions=768,
                 tokens=512,
                 text_query_prefix="Represent this sentence for searching relevant passages: ",
+            ),
+            "Marqo/dunzhang-stella_en_400M_v5": HFModelProperties(
+                name="Marqo/dunzhang-stella_en_400M_v5",
+                dimensions=1024,
+                tokens=512,
+                type=ModelType.hf_stella,
+                trustRemoteCode=True,
             ),
         }
         pass
