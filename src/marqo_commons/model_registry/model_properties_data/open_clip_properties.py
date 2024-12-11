@@ -22,6 +22,8 @@ class OpenClipModelProperties(ModelProperties):
     modality: List[Modality] = [Modality.text, Modality.image]
     type: ModelType = ModelType.open_clip
     pretrained: Optional[str] = None
+    imagePreprocessor: Optional[str] = None # if unspecified Marqo will default to "OpenCLIP"
+    size: Optional[int] = None # image_size for image preprocessor
     notes: str = ""
 
     @classmethod
@@ -368,6 +370,8 @@ class OpenClipModelProperties(ModelProperties):
                 dimensions=1152,
                 notes="open_clip model: ViT-SO400M-14-SigLIP-384/webli",
                 pretrained="webli",
+                imagePreprocessor="SigLIP",
+                size=384,
             ),
             "open_clip/ViT-H-14-378-quickgelu/dfn5b": OpenClipModelProperties(
                 name="open_clip/ViT-H-14-378-quickgelu/dfn5b",
@@ -380,6 +384,8 @@ class OpenClipModelProperties(ModelProperties):
                 dimensions=1024,
                 notes="open_clip model: ViT-L-16-SigLIP-384/webli",
                 pretrained="webli",
+                imagePreprocessor="SigLIP",
+                size=384,
             ),
             "open_clip/ViT-H-14-quickgelu/dfn5b": OpenClipModelProperties(
                 name="open_clip/ViT-H-14-quickgelu/dfn5b",
@@ -392,30 +398,40 @@ class OpenClipModelProperties(ModelProperties):
                 dimensions=1024,
                 notes="open_clip model: ViT-L-16-SigLIP-256/webli",
                 pretrained="webli",
+                imagePreprocessor="SigLIP",
+                size=256,
             ),
             "open_clip/ViT-B-16-SigLIP-512/webli": OpenClipModelProperties(
                 name="open_clip/ViT-B-16-SigLIP-512/webli",
                 dimensions=768,
                 notes="open_clip model: ViT-B-16-SigLIP-512/webli",
                 pretrained="webli",
+                imagePreprocessor="SigLIP",
+                size=512,
             ),
             "open_clip/ViT-B-16-SigLIP-384/webli": OpenClipModelProperties(
                 name="open_clip/ViT-B-16-SigLIP-384/webli",
                 dimensions=768,
                 notes="open_clip model: ViT-B-16-SigLIP-384/webli",
                 pretrained="webli",
+                imagePreprocessor="SigLIP",
+                size=384,
             ),
             "open_clip/ViT-B-16-SigLIP-256/webli": OpenClipModelProperties(
                 name="open_clip/ViT-B-16-SigLIP-256/webli",
                 dimensions=768,
                 notes="open_clip model: ViT-B-16-SigLIP-256/webli",
                 pretrained="webli",
+                imagePreprocessor="SigLIP",
+                size=256,
             ),
             "open_clip/ViT-B-16-SigLIP/webli": OpenClipModelProperties(
                 name="open_clip/ViT-B-16-SigLIP/webli",
                 dimensions=768,
                 notes="open_clip model: ViT-B-16-SigLIP/webli",
                 pretrained="webli",
+                imagePreprocessor="SigLIP",
+                size=224,
             ),
             "open_clip/ViT-L-14-quickgelu/dfn2b": OpenClipModelProperties(
                 name="open_clip/ViT-L-14-quickgelu/dfn2b",
@@ -468,26 +484,36 @@ class OpenClipModelProperties(ModelProperties):
                 name="hf-hub:Marqo/marqo-fashionSigLIP",
                 dimensions=768,
                 note="Marqo's fashionSigLIP model",
+                imagePreprocessor="SigLIP",
+                size=224,
             ),
             "visheratin/nllb-clip-base-siglip": OpenClipModelProperties(
                 name="hf-hub:visheratin/nllb-clip-base-siglip",
                 dimensions=768,
                 note="A multilingual CLIP model",
+                imagePreprocessor="SigLIP",
+                size=384,
             ),
             "visheratin/nllb-siglip-mrl-base": OpenClipModelProperties(
                 name="hf-hub:visheratin/nllb-siglip-mrl-base",
                 dimensions=768,
                 note="A multilingual CLIP model",
+                imagePreprocessor="SigLIP",
+                size=384,
             ),
             "visheratin/nllb-clip-large-siglip": OpenClipModelProperties(
                 name="hf-hub:visheratin/nllb-clip-large-siglip",
                 dimensions=1152,
                 note="A multilingual CLIP model",
+                imagePreprocessor="SigLIP",
+                size=384,
             ),
             "visheratin/nllb-siglip-mrl-large": OpenClipModelProperties(
                 name="hf-hub:visheratin/nllb-siglip-mrl-large",
                 dimensions=1152,
                 note="A multilingual CLIP model",
+                imagePreprocessor="SigLIP",
+                size=384,
             ),
         }
 

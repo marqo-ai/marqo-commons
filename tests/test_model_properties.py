@@ -171,3 +171,19 @@ class TestModelProperties(TestCase):
                         new_model_registry_dict[model][key],
                         f"Model {model} has different value for key {key} in old and new model registry",
                     )
+
+    def test_siglip_models_have_imageprocesser_set(self):
+        open_clip_properties = _get_open_clip_properties()
+        for model_name, model_property in open_clip_properties.items():
+            if "siglip" in model_name.lower():
+                self.assertEqual(
+                    model_property["imagePreprocessor"],
+                    "SigLIP",
+                    f"Model {model_name} does not have imageProcessor set to SigLIP",
+                )
+            else:
+                # not a SigLIP model, imageProcessor should be None
+                self.assertIsNone(
+                    model_property.get("imagePreprocessor"),
+                    f"Model {model_name} has imageProcessor set even though it is not a SigLIP model",
+                )
