@@ -40,6 +40,11 @@ class HFModelProperties(ModelProperties):
                 dimensions=384,
                 tokens=256,
             ),
+            "hf/all-MiniLM-L12-v2": HFModelProperties(
+                name="sentence-transformers/all-MiniLM-L12-v2",
+                dimensions=384,
+                tokens=256,
+            ),
             "hf/all-mpnet-base-v1": HFModelProperties(
                 name="sentence-transformers/all-mpnet-base-v1",
                 dimensions=768,
